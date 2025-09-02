@@ -1,5 +1,5 @@
 ---
-name: 🐛 Bug Report
+name: <img src="assets/icons/bug.svg" alt="Bug" width="20" height="20" style="vertical-align: middle;"> Bug Report
 about: Create a report to help us improve
 title: '[BUG] '
 labels: ['bug']
@@ -10,40 +10,40 @@ assignees: ''
 
 A clear and concise description of what the bug is.
 
-## 🔄 Steps to Reproduce
+## <img src="assets/icons/arrows-clockwise.svg" alt="Steps" width="20" height="20" style="vertical-align: middle;"> Steps to Reproduce
 
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-## ✅ Expected Behavior
+## <img src="assets/icons/check.svg" alt="Expected" width="20" height="20" style="vertical-align: middle;"> Expected Behavior
 
 A clear and concise description of what you expected to happen.
 
-## ❌ Actual Behavior
+## <img src="assets/icons/x.svg" alt="Actual" width="20" height="20" style="vertical-align: middle;"> Actual Behavior
 
 A clear and concise description of what actually happened.
 
-## 📸 Screenshots
+## <img src="assets/icons/camera.svg" alt="Screenshots" width="20" height="20" style="vertical-align: middle;"> Screenshots
 
 If applicable, add screenshots to help explain your problem.
 
-## 🔧 Environment
+## <img src="assets/icons/wrench.svg" alt="Environment" width="20" height="20" style="vertical-align: middle;"> Environment
 
 - **OS**: [e.g. macOS 12.0, Windows 11, Ubuntu 20.04]
 - **Python Version**: [e.g. 3.10.0]
 - **Make-Gist-List Version**: [e.g. 1.0.0]
 - **GitHub Username**: [e.g. your-username]
 
-## 📋 Configuration
+## <img src="assets/icons/clipboard-text.svg" alt="Configuration" width="20" height="20" style="vertical-align: middle;"> Configuration
 
 - **GITHUB_USERNAME**: [your username]
 - **LIST_GIST_ID**: [gist ID if set]
 - **GIST_TOKEN**: [set/not set]
 - **TARGET_MD_FILENAME**: [filename if customized]
 
-## 📝 Additional Context
+## <img src="assets/icons/file-text.svg" alt="Additional Context" width="20" height="20" style="vertical-align: middle;"> Additional Context
 
 Add any other context about the problem here, such as:
 - Error messages or logs
@@ -51,7 +51,7 @@ Add any other context about the problem here, such as:
 - Workarounds you've tried
 - Related issues or discussions
 
-## 🔍 Debug Information
+## <img src="assets/icons/magnifying-glass.svg" alt="Debug" width="20" height="20" style="vertical-align: middle;"> Debug Information
 
 If you're running locally, please include:
 - Full error traceback
@@ -60,4 +60,4 @@ If you're running locally, please include:
 
 ---
 
-**Thank you for reporting this bug! 🐛**
+**Thank you for reporting this bug! <img src="assets/icons/bug.svg" alt="Bug" width="20" height="20" style="vertical-align: middle;">**
