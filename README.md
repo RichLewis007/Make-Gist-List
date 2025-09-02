@@ -25,7 +25,7 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 
 ### Option 1: Fork & Use (Recommended)
 
-1. **Fork this repository** ⬆️
+1. **Fork this repository** <img src="assets/icons/arrow-up.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;">
 2. **Create a gist** to hold your list (copy its ID from the URL)
 3. **Set up GitHub secrets** in your forked repo:
    - `GITHUB_USERNAME`: Your GitHub username
