@@ -12,7 +12,7 @@
 
 A simple, lightweight Python script that fetches your public GitHub gists and creates a beautifully formatted markdown table. Perfect for maintaining an up-to-date index of your code snippets, utilities, and examples.
 
-## ✨ Features
+## <img src="assets/icons/sparkle.svg" alt="Features" width="20" height="20" style="vertical-align: middle;"> Features
 
 - <img src="assets/icons/arrows-clockwise.svg" alt="Updates" width="20" height="20" style="vertical-align: middle;"> **Automatic Updates**: Runs daily via GitHub Actions
 - <img src="assets/icons/chart-bar.svg" alt="Data" width="20" height="20" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, and links

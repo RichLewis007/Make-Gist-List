@@ -159,7 +159,7 @@ def build_markdown(gists: list[dict], username: str) -> str:
         "",
     ]
 
-    # ✅ Do assignment as a standalone statement (not inside the list literal)
+    # Do assignment as a standalone statement (not inside the list literal)
     count = len(gists)
     lines += [
         f"**Total public gists:** {count}",
