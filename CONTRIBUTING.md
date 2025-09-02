@@ -1,8 +1,8 @@
-# 🤝 Contributing to Make Gist List
+# <img src="assets/icons/handshake.svg" alt="Contributing" width="20" height="20" style="vertical-align: middle;"> Contributing to Make Gist List
 
 Thank you for considering contributing to this project! We welcome contributions from developers of all skill levels.
 
-## 🎯 How to Contribute
+## <img src="assets/icons/target.svg" alt="How to Contribute" width="20" height="20" style="vertical-align: middle;"> How to Contribute
 
 ### 1. Fork and Clone
 1. **Fork this repository** to your GitHub account
@@ -31,7 +31,7 @@ git checkout -b fix/issue-description
 3. **Describe your changes** clearly in the PR description
 4. **Link any related issues** if applicable
 
-## 📝 Coding Conventions
+## <img src="assets/icons/file-text.svg" alt="Coding Conventions" width="20" height="20" style="vertical-align: middle;"> Coding Conventions
 
 ### Python Style
 - **Follow PEP 8** for Python code style
@@ -51,7 +51,7 @@ git checkout -b fix/issue-description
 - **Check error handling** works as expected
 - **Test with both valid and invalid inputs**
 
-## 🚀 Contribution Ideas
+## <img src="assets/icons/rocket.svg" alt="Contribution Ideas" width="20" height="20" style="vertical-align: middle;"> Contribution Ideas
 
 ### High Priority
 - **Add new gist fields** (stars, forks, comments count)
@@ -71,7 +71,7 @@ git checkout -b fix/issue-description
 - **Add support for multiple gist lists**
 - **Create browser extensions** or integrations
 
-## 🐛 Bug Reports
+## <img src="assets/icons/bug.svg" alt="Bug Reports" width="20" height="20" style="vertical-align: middle;"> Bug Reports
 
 When reporting bugs, please include:
 
@@ -82,7 +82,7 @@ When reporting bugs, please include:
 - **Error messages** or logs if applicable
 - **Screenshots** if relevant
 
-## ✨ Feature Requests
+## <img src="assets/icons/lightbulb.svg" alt="Feature Requests" width="20" height="20" style="vertical-align: middle;"> Feature Requests
 
 For new features, please describe:
 
@@ -91,7 +91,7 @@ For new features, please describe:
 - **How you envision it working**
 - **Any examples** or mockups if possible
 
-## 🔧 Development Setup
+## <img src="assets/icons/wrench.svg" alt="Development Setup" width="20" height="20" style="vertical-align: middle;"> Development Setup
 
 ### Local Development
 ```bash
@@ -116,7 +116,7 @@ export GIST_TOKEN="your-token"
 python make-gist-list.py
 ```
 
-## 📋 Pull Request Guidelines
+## <img src="assets/icons/clipboard-text.svg" alt="Pull Request Guidelines" width="20" height="20" style="vertical-align: middle;"> Pull Request Guidelines
 
 ### Before Submitting
 - [ ] **Code follows** the project's style guidelines
@@ -145,7 +145,7 @@ If applicable, add screenshots of the changes.
 Closes #(issue number) if applicable.
 ```
 
-## 🏷️ Issue Labels
+## <img src="assets/icons/tag.svg" alt="Issue Labels" width="20" height="20" style="vertical-align: middle;"> Issue Labels
 
 We use the following labels to organize issues:
 
@@ -156,7 +156,7 @@ We use the following labels to organize issues:
 - **`help wanted`** - Extra attention is needed
 - **`question`** - Further information is requested
 
-## 📞 Getting Help
+## <img src="assets/icons/phone.svg" alt="Getting Help" width="20" height="20" style="vertical-align: middle;"> Getting Help
 
 ### Questions and Discussion
 - **Open an issue** for questions or discussions
@@ -169,7 +169,7 @@ We use the following labels to organize issues:
 - **Make requested changes** or explain why not
 - **Ask questions** if something isn't clear
 
-## 🙏 Recognition
+## <img src="assets/icons/hands-praying.svg" alt="Recognition" width="20" height="20" style="vertical-align: middle;"> Recognition
 
 Contributors will be:
 - **Listed in the README** contributors table with their contribution types
@@ -186,18 +186,18 @@ The All Contributors system recognizes many types of contributions:
 - **🐛 Bug reports** - Finding and reporting issues
 - **🤔 Ideas** - Planning, feedback, and suggestions
 - **🚧 Maintenance** - Ongoing project maintenance
-- **🎨 Design** - UI/UX improvements
-- **🌍 Translation** - Localization and translations
-- **📋 Review** - Code and PR reviews
+- **<img src="assets/icons/palette.svg" alt="Design" width="16" height="16" style="vertical-align: middle;"> Design** - UI/UX improvements
+- **<img src="assets/icons/globe.svg" alt="Translation" width="16" height="16" style="vertical-align: middle;"> Translation** - Localization and translations
+- **<img src="assets/icons/clipboard-text.svg" alt="Review" width="16" height="16" style="vertical-align: middle;"> Review** - Code and PR reviews
 - **🆘 Support** - Helping others with questions
 - **And many more!** - See the [full list](https://allcontributors.org/docs/en/emoji-key)
 
-## 📄 License
+## <img src="assets/icons/file-text.svg" alt="License" width="20" height="20" style="vertical-align: middle;"> License
 
 By contributing to this project, you agree that your contributions will be licensed under the same MIT License that covers the project.
 
 ---
 
-**Thank you for contributing to Make Gist List! 🚀**
+**Thank you for contributing to Make Gist List! <img src="assets/icons/rocket.svg" alt="Launch" width="20" height="20" style="vertical-align: middle;">**
 
 Your contributions help make this tool better for everyone in the GitHub community.
