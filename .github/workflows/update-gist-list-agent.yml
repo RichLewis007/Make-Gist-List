@@ -1,0 +1,38 @@
+name: Update Gist List
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # Daily 13:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  update-gist-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout this repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Setup Python
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      # Generate Markdown and optionally update gist
+      - name: Generate Markdown and update gist
+        env:
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          LIST_GIST_ID: ${{ secrets.LIST_GIST_ID }}
+          TARGET_MD_FILENAME: ${{ secrets.TARGET_MD_FILENAME || 'Public-Gists.md' }}
+        run: |
+          pip install .
+          python make-gist-list.py > /tmp/gist-list.md
+
+      # Show generated content
+      - name: Show generated Markdown
+        run: |
+          echo "Generated markdown preview:"
+          head -n 20 /tmp/gist-list.md || true
+          echo "Total size: $(wc -c < /tmp/gist-list.md) bytes"
+          
