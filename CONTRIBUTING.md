@@ -172,9 +172,25 @@ We use the following labels to organize issues:
 ## 🙏 Recognition
 
 Contributors will be:
-- **Listed in the README** (for significant contributions)
+- **Listed in the README** contributors table with their contribution types
+- **Recognized for all types of contributions** (not just code) following the [All Contributors](https://github.com/all-contributors/all-contributors) specification
 - **Mentioned in release notes** for their work
 - **Thanked in the project** documentation
+
+### Contribution Types
+
+The All Contributors system recognizes many types of contributions:
+
+- **💻 Code** - Writing or reviewing code
+- **📖 Documentation** - Writing or improving docs
+- **🐛 Bug reports** - Finding and reporting issues
+- **🤔 Ideas** - Planning, feedback, and suggestions
+- **🚧 Maintenance** - Ongoing project maintenance
+- **🎨 Design** - UI/UX improvements
+- **🌍 Translation** - Localization and translations
+- **📋 Review** - Code and PR reviews
+- **🆘 Support** - Helping others with questions
+- **And many more!** - See the [full list](https://allcontributors.org/docs/en/emoji-key)
 
 ## 📄 License
 
