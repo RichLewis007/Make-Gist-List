@@ -1,24 +1,24 @@
-# 🚀 Setup Guide
+# <img src="assets/icons/rocket.svg" alt="Setup Guide" width="20" height="20" style="vertical-align: middle;"> Setup Guide
 
 This comprehensive guide will walk you through setting up your own gist list updater. Follow these steps carefully to get everything working smoothly.
 
-## 📋 Prerequisites
+## <img src="assets/icons/clipboard-text.svg" alt="Prerequisites" width="20" height="20" style="vertical-align: middle;"> Prerequisites
 
 Before you begin, make sure you have:
-- ✅ A GitHub account
-- ✅ Some public gists (or create a few test ones)
-- ✅ Basic familiarity with GitHub (forking, setting secrets)
+- <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> A GitHub account
+- <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> Some public gists (or create a few test ones)
+- <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> Basic familiarity with GitHub (forking, setting secrets)
 
-## 🔄 Step 1: Fork This Repository
+## <img src="assets/icons/arrows-clockwise.svg" alt="Step 1" width="20" height="20" style="vertical-align: middle;"> Step 1: Fork This Repository
 
 1. **Navigate to this repository**: [Make-Gist-List](https://github.com/RichLewis007/Make-Gist-List)
 2. **Click the "Fork" button** at the top right of the page
 3. **Choose your GitHub account** as the destination
 4. **Wait for the fork to complete** (this may take a few seconds)
 
-> 💡 **Tip**: After forking, you'll be redirected to your own copy of the repository.
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: After forking, you'll be redirected to your own copy of the repository.
 
-## 📝 Step 2: Create a Gist
+## <img src="assets/icons/file-text.svg" alt="Step 2" width="20" height="20" style="vertical-align: middle;"> Step 2: Create a Gist
 
 1. **Go to [gist.github.com](https://gist.github.com)**
 2. **Click "New gist"** or the "+" button
@@ -27,9 +27,9 @@ Before you begin, make sure you have:
 5. **Click "Create public gist"**
 6. **Copy the gist ID** from the URL
 
-> 🔍 **Finding the Gist ID**: The URL will look like `https://gist.github.com/username/abc123def456...` - the long alphanumeric string after your username is the gist ID.
+> <img src="assets/icons/magnifying-glass.svg" alt="Finding" width="16" height="16" style="vertical-align: middle;"> **Finding the Gist ID**: The URL will look like `https://gist.github.com/username/abc123def456...` - the long alphanumeric string after your username is the gist ID.
 
-## 🔑 Step 3: Create a GitHub Token
+## <img src="assets/icons/key.svg" alt="Step 3" width="20" height="20" style="vertical-align: middle;"> Step 3: Create a GitHub Token
 
 1. **Go to [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)**
 2. **Click "Generate new token (classic)"**
@@ -39,9 +39,9 @@ Before you begin, make sure you have:
 6. **Click "Generate token"**
 7. **Copy the token immediately** - you won't see it again!
 
-> ⚠️ **Important**: The token only needs "gist" scope. Don't give it more permissions than necessary for security.
+> <img src="assets/icons/warning.svg" alt="Important" width="16" height="16" style="vertical-align: middle;"> **Important**: The token only needs "gist" scope. Don't give it more permissions than necessary for security.
 
-## ⚙️ Step 4: Set Repository Secrets
+## <img src="assets/icons/wrench.svg" alt="Step 4" width="20" height="20" style="vertical-align: middle;"> Step 4: Set Repository Secrets
 
 1. **In your forked repository**, go to "Settings" → "Secrets and variables" → "Actions"
 2. **Click "New repository secret"**
@@ -53,31 +53,31 @@ Before you begin, make sure you have:
 | `LIST_GIST_ID` | The gist ID from Step 2 | The gist that will be updated with your list |
 | `GIST_TOKEN` | The GitHub token from Step 3 | Token with permission to update gists |
 
-> 🔒 **Security Note**: These secrets are encrypted and only visible to you and GitHub Actions.
+> <img src="assets/icons/lock.svg" alt="Security" width="16" height="16" style="vertical-align: middle;"> **Security Note**: These secrets are encrypted and only visible to you and GitHub Actions.
 
-## 🧪 Step 5: Test the Setup
+## <img src="assets/icons/test-tube.svg" alt="Step 5" width="20" height="20" style="vertical-align: middle;"> Step 5: Test the Setup
 
 1. **Go to the "Actions" tab** in your repository
 2. **Click on "Update Gist List" workflow**
 3. **Click "Run workflow"** → "Run workflow"
 4. **Watch the workflow run** - it should complete successfully
 
-> 📊 **Monitor Progress**: You can click on the running workflow to see detailed logs and progress.
+> <img src="assets/icons/chart-bar.svg" alt="Monitor" width="16" height="16" style="vertical-align: middle;"> **Monitor Progress**: You can click on the running workflow to see detailed logs and progress.
 
-## ✅ Step 6: Verify the Result
+## <img src="assets/icons/check.svg" alt="Step 6" width="20" height="20" style="vertical-align: middle;"> Step 6: Verify the Result
 
 1. **Go to your gist** (using the ID from Step 2)
 2. **You should see a nicely formatted markdown table** of your public gists
 3. **The gist will be updated daily at 13:00 UTC** automatically
 
-> 🎯 **Success Indicators**: 
+> <img src="assets/icons/target.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> **Success Indicators**: 
 > - The gist contains a markdown table with your gists
 > - The table shows titles, file counts, languages, and links
 > - The "Last updated" timestamp is recent
 
-## 🔧 Troubleshooting
+## <img src="assets/icons/wrench.svg" alt="Troubleshooting" width="20" height="20" style="vertical-align: middle;"> Troubleshooting
 
-### ❌ "Gist not found" error
+### <img src="assets/icons/x.svg" alt="Error" width="16" height="16" style="vertical-align: middle;"> "Gist not found" error
 **Possible causes:**
 - Incorrect `LIST_GIST_ID` secret
 - Gist doesn't exist or was deleted
@@ -90,7 +90,7 @@ Before you begin, make sure you have:
 - Ensure the token has "gist" scope
 - Test the token manually by accessing the gist
 
-### ❌ "User not found" error
+### <img src="assets/icons/x.svg" alt="Error" width="16" height="16" style="vertical-align: middle;"> "User not found" error
 **Possible causes:**
 - Incorrect `GITHUB_USERNAME` secret
 - Username doesn't exist
@@ -101,7 +101,7 @@ Before you begin, make sure you have:
 - Check that the user has public gists
 - Ensure the username is spelled correctly
 
-### ❌ Workflow fails to run
+### <img src="assets/icons/x.svg" alt="Error" width="16" height="16" style="vertical-align: middle;"> Workflow fails to run
 **Possible causes:**
 - Missing required secrets
 - Incorrect workflow file
@@ -112,7 +112,7 @@ Before you begin, make sure you have:
 - Check the Actions tab for detailed error messages
 - Ensure GitHub Actions is enabled in your repository
 
-### ❌ No gists showing up
+### <img src="assets/icons/x.svg" alt="Error" width="16" height="16" style="vertical-align: middle;"> No gists showing up
 **Possible causes:**
 - No public gists exist
 - Gists are marked as private
@@ -125,7 +125,7 @@ Before you begin, make sure you have:
 - Wait and try again (rate limiting)
 - Check your internet connection
 
-## 🎨 Customization Options
+## <img src="assets/icons/palette.svg" alt="Customization" width="20" height="20" style="vertical-align: middle;"> Customization Options
 
 ### Change the Update Schedule
 Edit `.github/workflows/update-gist-list-agent.yml` and modify the cron line:
@@ -152,7 +152,7 @@ Modify the `list_public_gists()` function to:
 - Filter by description keywords
 - Exclude specific gists
 
-## 🆘 Need Help?
+## <img src="assets/icons/question.svg" alt="Help" width="20" height="20" style="vertical-align: middle;"> Need Help?
 
 ### Self-Help Resources
 - **Check the [main README](README.md)** for overview and features
@@ -175,12 +175,12 @@ Modify the `list_public_gists()` function to:
 
 ---
 
-## 🎉 You're All Set!
+## <img src="assets/icons/party-popper.svg" alt="Success" width="20" height="20" style="vertical-align: middle;"> You're All Set!
 
 Once you've completed these steps, you'll have:
-- ✅ An automatically updating list of your public gists
-- ✅ A beautiful markdown table updated daily
-- ✅ A system that's easy to customize and extend
-- ✅ A project you can share with others
+- <img src="assets/icons/check.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> An automatically updating list of your public gists
+- <img src="assets/icons/check.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> A beautiful markdown table updated daily
+- <img src="assets/icons/check.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> A system that's easy to customize and extend
+- <img src="assets/icons/check.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> A project you can share with others
 
-**Happy gist organizing! 🚀**
+**Happy gist organizing! <img src="assets/icons/rocket.svg" alt="Launch" width="20" height="20" style="vertical-align: middle;">**
