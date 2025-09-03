@@ -117,7 +117,7 @@
       "color": "0075ca"
     },
     {
-      "symbol": "<img src=\"assets/icons/eye.svg\" alt=\"Reviewed Pull Requests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "symbol": "<img src=\"assets/icons/eyes.svg\" alt=\"Reviewed Pull Requests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Reviewed Pull Requests",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/pulls?q=reviewed-by%3A<%= username %>",
       "color": "0075ca"

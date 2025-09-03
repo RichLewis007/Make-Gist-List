@@ -139,7 +139,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **<img src="assets/icons/star.svg" alt="Star" width="20" height="20" style="vertical-align: middle;"> If this project helps you, please give it a star!**
 
-**<img src="assets/icons/arrows-clockwise.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;"> Fork it to create your own gist list updater!**
+**<img src="assets/icons/arrow-up.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;"> Fork it to create your own gist list updater!**
 
 ## Contributors ✨
 
