@@ -164,8 +164,8 @@ def build_markdown(gists: list[dict], username: str) -> str:
     lines += [
         f"**Total public gists:** {count}",
         "",
-        "| Title | Files | Lang | Public | Updated | Link |",
-        "|---|---:|---|:---:|---|---|",
+        "| Title | Files | Lang | Public | Updated | Link | Stars | Forks",
+        "|---|---:|---|:---:|---|---|---|---|",
     ]
 
     gists_sorted = sorted(gists, key=lambda x: x.get("updated_at") or "", reverse=True)
@@ -182,9 +182,23 @@ def build_markdown(gists: list[dict], username: str) -> str:
         except Exception:
             updated = g.get("updated_at") or ""
         url = g.get("html_url") or ""
+        gist_id = g.get("id", "")
+
+        # fetching stars and forks for each gist, because the api doesn't provide them
+        try:
+            stars_response = session.get(f"{API}/gists/{gist_id}/stargazers")
+            stars = len(stars_response.json()) if stars_response.status_code == 200 else 0
+        except Exception:
+            stars = 0
+        try:
+            forks_response = session.get(f"{API}/gists/{gist_id}/forks")
+            forks = len(forks_response.json()) if forks_response.status_code == 200 else 0
+        except Exception:
+            forks = 0
+
 
         public_flag = "✅" if g.get("public") else "❌"
-        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) |")
+        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {stars} | {forks} |")
 
     lines += [
         "",
