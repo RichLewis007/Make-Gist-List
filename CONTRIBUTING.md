@@ -181,16 +181,44 @@ Contributors will be:
 
 The All Contributors system recognizes many types of contributions:
 
-- **💻 Code** - Writing or reviewing code
-- **📖 Documentation** - Writing or improving docs
-- **🐛 Bug reports** - Finding and reporting issues
-- **🤔 Ideas** - Planning, feedback, and suggestions
-- **🚧 Maintenance** - Ongoing project maintenance
+- **<img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"> Code** - Writing or reviewing code
+- **<img src="assets/icons/books.svg" alt="Documentation" width="16" height="16" style="vertical-align: middle;"> Documentation** - Writing or improving docs
+- **<img src="assets/icons/bug.svg" alt="Bug Reports" width="16" height="16" style="vertical-align: middle;"> Bug reports** - Finding and reporting issues
+- **<img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"> Ideas** - Planning, feedback, and suggestions
+- **<img src="assets/icons/wrench.svg" alt="Maintenance" width="16" height="16" style="vertical-align: middle;"> Maintenance** - Ongoing project maintenance
 - **<img src="assets/icons/palette.svg" alt="Design" width="16" height="16" style="vertical-align: middle;"> Design** - UI/UX improvements
 - **<img src="assets/icons/globe.svg" alt="Translation" width="16" height="16" style="vertical-align: middle;"> Translation** - Localization and translations
 - **<img src="assets/icons/clipboard-text.svg" alt="Review" width="16" height="16" style="vertical-align: middle;"> Review** - Code and PR reviews
-- **🆘 Support** - Helping others with questions
+- **<img src="assets/icons/question.svg" alt="Support" width="16" height="16" style="vertical-align: middle;"> Support** - Helping others with questions
 - **And many more!** - See the [full list](https://allcontributors.org/docs/en/emoji-key)
+
+### <img src="assets/icons/star.svg" alt="Adding Yourself to Contributors" width="20" height="20" style="vertical-align: middle;"> Adding Yourself to Contributors
+
+If you've contributed to this repository in any way, you can add yourself to the Contributors list in the README.md file! Here's how:
+
+1. **Comment on any Issue or Pull Request** with:
+   ```
+   @all-contributors please add @your-username for <contribution-type>
+   ```
+
+2. **Available contribution types** include:
+   - `code` - Programming contributions
+   - `doc` - Documentation improvements
+   - `bug` - Bug reports
+   - `ideas` - Ideas and planning
+   - `review` - Code reviews
+   - `test` - Testing and quality assurance
+   - `infra` - Infrastructure and tooling
+   - And many more!
+
+3. **The bot will automatically**:
+   - Create a Pull Request to add you
+   - Update the Contributors section
+   - Use your custom icons and styling
+
+**Learn more**: Check out the [@all-contributors Bot Usage Guide](https://allcontributors.org/docs/en/bot/usage) for detailed instructions and all available contribution types.
+
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Pro Tip**: You can add multiple contribution types at once: `@all-contributors please add @username for code, doc, ideas`
 
 ## <img src="assets/icons/file-text.svg" alt="License" width="20" height="20" style="vertical-align: middle;"> License
 
