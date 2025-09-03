@@ -29,137 +29,137 @@
   "repoHost": "https://github.com",
   "projectName": "Make-Gist-List",
   "projectOwner": "RichLewis007",
-  "badgeTemplate": "<img alt=\"<%= symbol %>\" src=\"https://img.shields.io/badge/<%= symbol %>-<%= symbolLabel %>-<%= color %>.svg\">",
+  "badgeTemplate": "<img src=\"assets/icons/users.svg\" alt=\"All Contributors\" width=\"20\" height=\"20\" style=\"vertical-align: middle;\"> All Contributors",
   "contributorTemplate": "<td align=\"center\" valign=\"top\" width=\"<%= width %>\"><a href=\"<%= profile %>\"><img src=\"<%= avatar %>\" width=\"<%= imageSize %>px;\" alt=\"<%= name %>\"/><br /><sub><b><%= name %></b></sub></a><br /><%= contributions %></td>",
   "types": [
     {
-      "symbol": "💻",
+      "symbol": "<img src=\"assets/icons/terminal.svg\" alt=\"Code\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Code",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "d73a4a"
     },
     {
-      "symbol": "🆘",
+      "symbol": "<img src=\"assets/icons/question.svg\" alt=\"Questions\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Answering Questions (on Issues, Stack Overflow, Gitter, Slack, etc.)",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
       "color": "007ec6"
     },
     {
-      "symbol": "🐛",
+      "symbol": "<img src=\"assets/icons/bug.svg\" alt=\"Bug Reports\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Bug reports",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
       "color": "d73a4a"
     },
     {
-      "symbol": "📝",
+      "symbol": "<img src=\"assets/icons/file-text.svg\" alt=\"Blogposts\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Blogposts",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "💬",
+      "symbol": "<img src=\"assets/icons/chat-circle.svg\" alt=\"Chat\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Chat",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "007ec6"
     },
     {
-      "symbol": "🛡️",
+      "symbol": "<img src=\"assets/icons/shield-check.svg\" alt=\"Security\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Security",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "d73a4a"
     },
     {
-      "symbol": "🎨",
+      "symbol": "<img src=\"assets/icons/palette.svg\" alt=\"Design\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Design",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "📖",
+      "symbol": "<img src=\"assets/icons/books.svg\" alt=\"Documentation\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Documentation",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-      "color": "0075ca"
+      "color": "d73a4a"
     },
     {
-      "symbol": "🎉",
+      "symbol": "<img src=\"assets/icons/party-popper.svg\" alt=\"Event Organizers\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Event Organizers",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "💵",
+      "symbol": "<img src=\"assets/icons/currency-dollar.svg\" alt=\"Financial\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Financial",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "🔍",
+      "symbol": "<img src=\"assets/icons/magnifying-glass.svg\" alt=\"Funding/Grant Finders\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Funding/Grant Finders",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "🤔",
+      "symbol": "<img src=\"assets/icons/lightbulb.svg\" alt=\"Ideas, Planning, & Feedback\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Ideas, Planning, & Feedback",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "🚇",
+      "symbol": "<img src=\"assets/icons/server.svg\" alt=\"Infrastructure\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Infrastructure (Hosting, Build-Tools, etc.)",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "📋",
+      "symbol": "<img src=\"assets/icons/clipboard-text.svg\" alt=\"Issue & PR Review\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Issue & PR Review",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0075ca"
     },
     {
-      "symbol": "👀",
+      "symbol": "<img src=\"assets/icons/eye.svg\" alt=\"Reviewed Pull Requests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Reviewed Pull Requests",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/pulls?q=reviewed-by%3A<%= username %>",
       "color": "0075ca"
     },
     {
-      "symbol": "🔧",
+      "symbol": "<img src=\"assets/icons/wrench.svg\" alt=\"Tools\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Tools",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "🌍",
+      "symbol": "<img src=\"assets/icons/globe.svg\" alt=\"Translation\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Translation",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "⚠️",
+      "symbol": "<img src=\"assets/icons/test-tube.svg\" alt=\"Tests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Tests",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "✅",
+      "symbol": "<img src=\"assets/icons/check.svg\" alt=\"Tutorials\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Tutorials",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "📢",
+      "symbol": "<img src=\"assets/icons/megaphone.svg\" alt=\"Talks\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Talks",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "📹",
+      "symbol": "<img src=\"assets/icons/video-camera.svg\" alt=\"Videos\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Videos",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "🚧",
+      "symbol": "<img src=\"assets/icons/wrench.svg\" alt=\"Maintenance\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
       "description": "Maintenance",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
