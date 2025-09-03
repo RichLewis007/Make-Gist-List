@@ -189,12 +189,12 @@ def build_markdown(gists: list[dict], username: str) -> str:
             stars_response = session.get(f"{API}/gists/{gist_id}/stargazers")
             stars = len(stars_response.json()) if stars_response.status_code == 200 else 0
         except Exception:
-            stars = 0
+            stars = "N/A"
         try:
             forks_response = session.get(f"{API}/gists/{gist_id}/forks")
             forks = len(forks_response.json()) if forks_response.status_code == 200 else 0
         except Exception:
-            forks = 0
+            forks = "N/A"
 
 
         public_flag = "✅" if g.get("public") else "❌"
