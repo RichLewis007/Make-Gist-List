@@ -1,41 +1,28 @@
 #!/usr/bin/env python3
-"""
-Make a public-only list of all of my public gists,
-and update a target gist with a Markdown table of those gists.
+# file: make-gist-list.py
 
-## Behavior
+"""
+Automatically generates a markdown table of ALL of your public GISTS 
+and updates a gist with that list. Super handy! 
+
+**Please see the README.md and SETUP.md files for more information on how to use this script.**
+
+Behavior:
 - Always prints the Markdown to stdout.
 - If LIST_GIST_ID and GIST_TOKEN are set, also PATCHes that gist file.
 
-## Requirements
-Uses the GitHub API command line utility. Install it, then login:
-```
-gh auth login
-```
-
-Install dependencies via pip:
-```
-pip install requests
-```
-
-Run the script:
-```
-python3 make-gist-list.py
-```
-
-## Env:
+Env variables:
   GITHUB_USERNAME (required) GitHub username to list PUBLIC gists from
   LIST_GIST_ID    (optional) The gist ID to overwrite (the list gist)
   GIST_TOKEN      (optional) Has "gist" scope, required for updating the gist.
 
-## Output fields
+Output fields:
   Title (first line of gist description, truncated)
   Files (count)
   Lang (primary language by largest file)
   Public (always checking this)
   Updated (UTC)
   Link (to the gist)
-
 """
 
 from __future__ import annotations
