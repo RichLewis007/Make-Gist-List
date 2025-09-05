@@ -10,7 +10,7 @@
 
 > **Automatically generate and maintain a markdown list of all your public GitHub gists**
 
-A simple, lightweight Python script that fetches your public GitHub gists and creates a beautifully formatted markdown table. Perfect for maintaining an up-to-date index of your code snippets, utilities, and examples.
+A simple, lightweight Python script that fetches your public GitHub gists and creates an easy to read markdown table. Perfect for maintaining an up-to-date index of your code snippets, utilities, and examples.
 
 ## <img src="assets/icons/sparkle.svg" alt="Features" width="20" height="20" style="vertical-align: middle;"> Features
 
