@@ -14,136 +14,202 @@
   "contributorsSortAlphabetically": false,
   "types": [
     {
-      "symbol": "<img src=\"assets/icons/terminal.svg\" alt=\"Code\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Code",
+      "symbol": "<img src=\"assets/icons/megaphone.svg\" alt=\"Audio\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "audio",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-      "color": "d73a4a"
+      "color": "5319e7"
     },
     {
-      "symbol": "<img src=\"assets/icons/question.svg\" alt=\"Questions\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Answering Questions (on Issues, Stack Overflow, Gitter, Slack, etc.)",
-      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
-      "color": "007ec6"
+      "symbol": "<img src=\"assets/icons/shield-check.svg\" alt=\"Accessibility\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "a11y",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/bug.svg\" alt=\"Bug Reports\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Bug reports",
+      "description": "bug",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
       "color": "d73a4a"
     },
     {
       "symbol": "<img src=\"assets/icons/file-text.svg\" alt=\"Blogposts\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Blogposts",
+      "description": "blog",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
-      "symbol": "<img src=\"assets/icons/chat-circle.svg\" alt=\"Chat\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Chat",
+      "symbol": "<img src=\"assets/icons/handshake.svg\" alt=\"Business Development\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "business",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-      "color": "007ec6"
+      "color": "5319e7"
     },
     {
-      "symbol": "<img src=\"assets/icons/shield-check.svg\" alt=\"Security\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Security",
+      "symbol": "<img src=\"assets/icons/terminal.svg\" alt=\"Code\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "code",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "d73a4a"
     },
     {
-      "symbol": "<img src=\"assets/icons/palette.svg\" alt=\"Design\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Design",
+      "symbol": "<img src=\"assets/icons/clipboard-text.svg\" alt=\"Content\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "content",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/chart-bar.svg\" alt=\"Data\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "data",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/books.svg\" alt=\"Documentation\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Documentation",
+      "description": "doc",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "d73a4a"
     },
     {
+      "symbol": "<img src=\"assets/icons/palette.svg\" alt=\"Design\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "design",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/lightbulb.svg\" alt=\"Examples\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "example",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
       "symbol": "<img src=\"assets/icons/party-popper.svg\" alt=\"Event Organizers\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Event Organizers",
+      "description": "eventOrganizing",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/currency-dollar.svg\" alt=\"Financial\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Financial",
+      "description": "financial",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
       "symbol": "<img src=\"assets/icons/magnifying-glass.svg\" alt=\"Funding/Grant Finders\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Funding/Grant Finders",
+      "description": "fundingFinding",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
       "symbol": "<img src=\"assets/icons/lightbulb.svg\" alt=\"Ideas, Planning, & Feedback\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Ideas, Planning, & Feedback",
+      "description": "ideas",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/server.svg\" alt=\"Infrastructure\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Infrastructure (Hosting, Build-Tools, etc.)",
+      "description": "infra",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
-      "symbol": "<img src=\"assets/icons/clipboard-text.svg\" alt=\"Issue & PR Review\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Issue & PR Review",
+      "symbol": "<img src=\"assets/icons/wrench.svg\" alt=\"Maintenance\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "maintenance",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-      "color": "0075ca"
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/handshake.svg\" alt=\"Mentoring\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "mentoring",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/package.svg\" alt=\"Packaging\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "platform",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/plug.svg\" alt=\"Plugin/utility libraries\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "plugin",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/calendar.svg\" alt=\"Project Management\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "projectManagement",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/megaphone.svg\" alt=\"Promotion\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "promotion",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/question.svg\" alt=\"Questions\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "question",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
+      "color": "007ec6"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/magnifying-glass.svg\" alt=\"Research\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "research",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/eyes.svg\" alt=\"Reviewed Pull Requests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Reviewed Pull Requests",
+      "description": "review",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/pulls?q=reviewed-by%3A<%= username %>",
       "color": "0075ca"
     },
     {
+      "symbol": "<img src=\"assets/icons/shield-check.svg\" alt=\"Security\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "security",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "d73a4a"
+    },
+    {
       "symbol": "<img src=\"assets/icons/wrench.svg\" alt=\"Tools\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Tools",
+      "description": "tool",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/globe.svg\" alt=\"Translation\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Translation",
+      "description": "translation",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/test-tube.svg\" alt=\"Tests\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Tests",
+      "description": "test",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/check.svg\" alt=\"Tutorials\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Tutorials",
+      "description": "tutorial",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
     },
     {
       "symbol": "<img src=\"assets/icons/megaphone.svg\" alt=\"Talks\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Talks",
+      "description": "talk",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
+    },
+    {
+      "symbol": "<img src=\"assets/icons/test-tube.svg\" alt=\"User Testing\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
+      "description": "userTesting",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
     },
     {
       "symbol": "<img src=\"assets/icons/video-camera.svg\" alt=\"Videos\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Videos",
+      "description": "video",
       "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
       "color": "0e8a16"
-    },
-    {
-      "symbol": "<img src=\"assets/icons/wrench.svg\" alt=\"Maintenance\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
-      "description": "Maintenance",
-      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-      "color": "5319e7"
     }
   ],
   "linkToUsage": false,
