@@ -219,21 +219,22 @@
   "skipCi": true,
   "contributors": [
       {
-          "login": "RichLewis007",
-          "name": "Rich Lewis",
-          "avatar_url": "https://avatars.githubusercontent.com/u/1149213?v=4",
-          "profile": "https://github.com/RichLewis007",
-          "contributions": [
-              "ideas"
-          ]
-      },
-      {
           "login": "MindfulLearner",
           "name": "Joshua Dimaunahan",
           "avatar_url": "https://avatars.githubusercontent.com/u/170177550?v=4",
           "profile": "https://dima-portfolio.vercel.app",
           "contributions": [
               "ideas"
+          ]
+      },
+      {
+          "login": "RichLewis007",
+          "name": "Rich Lewis",
+          "avatar_url": "https://avatars.githubusercontent.com/u/1149213?v=4",
+          "profile": "https://github.com/RichLewis007",
+          "contributions": [
+              "ideas",
+              "code"
           ]
       }
   ]
