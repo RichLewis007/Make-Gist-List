@@ -1,239 +1,248 @@
 {
-    "$schema": "https://allcontributors.org/docs/schema.json",
-    "projectName": "Make-Gist-List",
-    "projectOwner": "RichLewis007",
-    "repoType": "github",
-    "repoHost": "https://github.com",
-    "files": [
-        "README.md"
-    ],
-    "imageSize": 100,
-    "commit": false,
-    "commitConvention": "angular",
-    "commitType": "docs",
-    "contributorsPerLine": 7,
-    "contributorsSortAlphabetically": false,
-    "types": [
-        {
-            "symbol": "🎵",
-            "description": "audio",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "♿",
-            "description": "a11y",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🐛",
-            "description": "bug",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
-            "color": "d73a4a"
-        },
-        {
-            "symbol": "📝",
-            "description": "blog",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        },
-        {
-            "symbol": "💼",
-            "description": "business",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "💻",
-            "description": "code",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "d73a4a"
-        },
-        {
-            "symbol": "🖋",
-            "description": "content",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📊",
-            "description": "data",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📚",
-            "description": "doc",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "d73a4a"
-        },
-        {
-            "symbol": "🎨",
-            "description": "design",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "💡",
-            "description": "example",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🎉",
-            "description": "eventOrganizing",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "💰",
-            "description": "financial",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        },
-        {
-            "symbol": "🔍",
-            "description": "fundingFinding",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        },
-        {
-            "symbol": "💡",
-            "description": "ideas",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🚇",
-            "description": "infra",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🔧",
-            "description": "maintenance",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "👥",
-            "description": "mentoring",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📦",
-            "description": "platform",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🔌",
-            "description": "plugin",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📋",
-            "description": "projectManagement",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📢",
-            "description": "promotion",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "❓",
-            "description": "question",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
-            "color": "007ec6"
-        },
-        {
-            "symbol": "🔬",
-            "description": "research",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "👀",
-            "description": "review",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/pulls?q=reviewed-by%3A<%= username %>",
-            "color": "0075ca"
-        },
-        {
-            "symbol": "🛡️",
-            "description": "security",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "d73a4a"
-        },
-        {
-            "symbol": "🔧",
-            "description": "tool",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "🌍",
-            "description": "translation",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "⚠️",
-            "description": "test",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "✅",
-            "description": "tutorial",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        },
-        {
-            "symbol": "📢",
-            "description": "talk",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        },
-        {
-            "symbol": "🧪",
-            "description": "userTesting",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "5319e7"
-        },
-        {
-            "symbol": "📹",
-            "description": "video",
-            "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
-            "color": "0e8a16"
-        }
-    ],
-    "linkToUsage": false,
-    "skipCi": true,
-    "contributors": [
-        {
-            "login": "MindfulLearner",
-            "name": "Joshua Dimaunahan",
-            "avatar_url": "https://avatars.githubusercontent.com/u/170177550?v=4",
-            "profile": "https://dima-portfolio.vercel.app",
-            "contributions": [
-                "ideas"
-            ]
-        },
-        {
-            "login": "RichLewis007",
-            "name": "Rich Lewis",
-            "avatar_url": "https://avatars.githubusercontent.com/u/1149213?v=4",
-            "profile": "https://github.com/RichLewis007",
-            "contributions": [
-                "ideas",
-                "code"
-            ]
-        }
-    ]
+  "$schema": "https://allcontributors.org/docs/schema.json",
+  "projectName": "Make-Gist-List",
+  "projectOwner": "RichLewis007",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "commitType": "docs",
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "types": [
+    {
+      "symbol": "🎵",
+      "description": "audio",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "♿",
+      "description": "a11y",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🐛",
+      "description": "bug",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
+      "color": "d73a4a"
+    },
+    {
+      "symbol": "📝",
+      "description": "blog",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    },
+    {
+      "symbol": "💼",
+      "description": "business",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "💻",
+      "description": "code",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "d73a4a"
+    },
+    {
+      "symbol": "🖋",
+      "description": "content",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📊",
+      "description": "data",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📚",
+      "description": "doc",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "d73a4a"
+    },
+    {
+      "symbol": "🎨",
+      "description": "design",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "💡",
+      "description": "example",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🎉",
+      "description": "eventOrganizing",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "💰",
+      "description": "financial",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    },
+    {
+      "symbol": "🔍",
+      "description": "fundingFinding",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    },
+    {
+      "symbol": "💡",
+      "description": "ideas",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🚇",
+      "description": "infra",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🔧",
+      "description": "maintenance",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "👥",
+      "description": "mentoring",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📦",
+      "description": "platform",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🔌",
+      "description": "plugin",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📋",
+      "description": "projectManagement",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📢",
+      "description": "promotion",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "❓",
+      "description": "question",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/issues?q=author%3A<%= username %>",
+      "color": "007ec6"
+    },
+    {
+      "symbol": "🔬",
+      "description": "research",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "👀",
+      "description": "review",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/pulls?q=reviewed-by%3A<%= username %>",
+      "color": "0075ca"
+    },
+    {
+      "symbol": "🛡️",
+      "description": "security",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "d73a4a"
+    },
+    {
+      "symbol": "🔧",
+      "description": "tool",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "🌍",
+      "description": "translation",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "⚠️",
+      "description": "test",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "✅",
+      "description": "tutorial",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    },
+    {
+      "symbol": "📢",
+      "description": "talk",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    },
+    {
+      "symbol": "🧪",
+      "description": "userTesting",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "5319e7"
+    },
+    {
+      "symbol": "📹",
+      "description": "video",
+      "link": "https://github.com/<%= projectOwner %>/<%= projectName %>/commits?author=<%= username %>",
+      "color": "0e8a16"
+    }
+  ],
+  "linkToUsage": false,
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "MindfulLearner",
+      "name": "Joshua Dimaunahan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/170177550?v=4",
+      "profile": "https://dima-portfolio.vercel.app",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "RichLewis007",
+      "name": "Rich Lewis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1149213?v=4",
+      "profile": "https://github.com/RichLewis007",
+      "contributions": [
+        "ideas",
+        "code"
+      ]
+    },
+    {
+      "login": "jeff-s",
+      "name": "Jeff S.",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4961033?v=4",
+      "profile": "https://github.com/jeff-s",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ]
 }
