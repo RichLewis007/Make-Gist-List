@@ -13,8 +13,6 @@
   "commitConvention": "angular",
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": false,
-  "contributorTemplate": "<td align=\"center\" valign=\"top\" width=\"<%= width %>\"><a href=\"<%= profile %>\"><img src=\"<%= avatar %>\" width=\"<%= imageSize %>px;\" alt=\"<%= name %>\"/><br /><sub><b><%= name %></b></sub></a><br /><%= contributions %></td>",
-  "badgeTemplate": "<img src=\"assets/icons/users.svg\" alt=\"All Contributors\" width=\"20\" height=\"20\" style=\"vertical-align: middle;\"> All Contributors",
   "types": [
     {
       "symbol": "<img src=\"assets/icons/terminal.svg\" alt=\"Code\" width=\"16\" height=\"16\" style=\"vertical-align: middle;\">",
