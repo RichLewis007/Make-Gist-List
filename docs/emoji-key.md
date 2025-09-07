@@ -1,8 +1,4 @@
----
-id: emoji-key
-title: Emoji Key <img src="../assets/icons/sparkle.svg" alt="Sparkle" width="20" height="20" style="vertical-align: middle;"> (and Contribution Types)
-sidebar_label: Emoji Key <img src="../assets/icons/sparkle.svg" alt="Sparkle" width="20" height="20" style="vertical-align: middle;">
----
+## Emoji Key (and Contribution Types)
 
 ## Table
 
@@ -51,9 +47,9 @@ Emoji/Type | Represents | Comments |
 
 ---
 
-<sub><b>This page used and modified per project license:</b>
+<sub><b>This page used and modified per project license:</b></sub>
 
-The MIT License (MIT)
+<sub>The MIT License (MIT)
 Copyright (c) 2016 Kent C. Dodds, 2019 Jake Bolam
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
