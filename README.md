@@ -1,6 +1,6 @@
 # Make Gist List <img src="assets/icons/file-text.svg" alt="Documentation" width="20" height="20" style="vertical-align: middle;">
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Update Gist List](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml/badge.svg)](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml)
@@ -155,6 +155,7 @@ Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href="#ideas-MindfulLearner" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jeff-s"><img src="https://avatars.githubusercontent.com/u/4961033?v=4?s=100" width="100px;" alt="Jeff S."/><br /><sub><b>Jeff S.</b></sub></a><br /><a href="#ideas-jeff-s" title="Ideas, Planning, & Feedback">🤔</a> <a href="#promotion-jeff-s" title="Promotion">📣</a></td>
     </tr>
   </tbody>
 </table>
