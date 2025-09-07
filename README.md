@@ -145,16 +145,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 
+## Contributors
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="#infra-RichLewis007" title="Infrastructure (Hosting, Build-Tools, etc)"><img src="assets/icons/server.svg" alt="Infrastructure" width="16" height="16" style="vertical-align: middle;"></a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Tests"><img src="assets/icons/test-tube.svg" alt="Tests" width="16" height="16" style="vertical-align: middle;"></a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code"><img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"></a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Documentation"><img src="assets/icons/books.svg" alt="Documentation" width="16" height="16" style="vertical-align: middle;"></a> <a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"></a> <a href="#maintenance-RichLewis007" title="Maintenance"><img src="assets/icons/wrench.svg" alt="Maintenance" width="16" height="16" style="vertical-align: middle;"></a></td>
-    </tr>
-  </tbody>
-</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->

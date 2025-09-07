@@ -229,3 +229,16 @@ By contributing to this project, you agree that your contributions will be licen
 **Thank you for contributing to Make Gist List! <img src="assets/icons/rocket.svg" alt="Launch" width="20" height="20" style="vertical-align: middle;">**
 
 Your contributions help make this tool better for everyone in the GitHub community.
+
+Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
