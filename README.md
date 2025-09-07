@@ -153,7 +153,7 @@ Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a id="ideas-MindfulLearner"></a><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href=""><img src="assets/icons/lightbulb.svg" alt="Ideas, Planning, & Feedback" width="16" height="16" style="vertical-align: middle;"></a></td>
+      <td align="center" valign="top" width="14.28%"><a id="ideas-MindfulLearner"></a><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href="Contributors" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas, Planning, & Feedback" width="16" height="16" style="vertical-align: middle;"></a></td>
     </tr>
   </tbody>
 </table>
