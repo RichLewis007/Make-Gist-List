@@ -153,7 +153,7 @@ Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="#code-RichLewis007" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="#code-RichLewis007" title="Code"><img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"></a></td>
     </tr>
   </tbody>
 </table>
