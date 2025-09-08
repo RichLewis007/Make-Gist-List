@@ -170,7 +170,7 @@ def build_markdown(gists: list[dict], username: str) -> str:
             updated = g.get("updated_at") or ""
         url = g.get("html_url") or ""
 
-        public_flag = "✅" if g.get("public") else "❌"
+        public_flag = '<img src="assets/icons/check.svg" alt="Public" width="16" height="16" style="vertical-align: middle;">' if g.get("public") else '<img src="assets/icons/x.svg" alt="Private" width="16" height="16" style="vertical-align: middle;">'
         lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) |")
 
     lines += [
