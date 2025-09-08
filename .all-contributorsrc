@@ -1,4 +1,21 @@
 {
-    "projectName": "Make-Gist-List",
-    "projectOwner": "RichLewis007"
+  "projectName": "Make-Gist-List",
+  "projectOwner": "RichLewis007",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "RichLewis007",
+      "name": "Rich Lewis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1149213?v=4",
+      "profile": "https://github.com/RichLewis007",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
 }
