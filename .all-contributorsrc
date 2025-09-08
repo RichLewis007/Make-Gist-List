@@ -1,20 +1,4 @@
 {
-    "$schema": "https://allcontributors.org/docs/schema.json",
     "projectName": "Make-Gist-List",
-    "projectOwner": "RichLewis007",
-    "repoType": "github",
-    "repoHost": "https://github.com",
-    "files": [
-        "README.md"
-    ],
-    "imageSize": 100,
-    "commit": false,
-    "commitConvention": "angular",
-    "commitType": "docs",
-    "contributorsPerLine": 7,
-    "contributorsSortAlphabetically": false,
-    "contributorTemplate": "<td align=\"center\" valign=\"top\" width=\"<%= width %>\"><a href=\"<%= profile %>\"><img src=\"<%= avatar %>\" width=\"<%= imageSize %>px;\" alt=\"<%= name %>\"/><br /><sub><b><%= name %></b></sub></a><br /><%= contributions %></td>",
-    "linkToUsage": false,
-    "skipCi": true,
-    "contributors": []
+    "projectOwner": "RichLewis007"
 }
