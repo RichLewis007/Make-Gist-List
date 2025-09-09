@@ -1,41 +1,47 @@
 #!/usr/bin/env python3
+# file: make-gist-list.py
+
 """
-Make a public-only list of all of my public gists,
-and update a target gist with a Markdown table of those gists.
+Make Gist List - GitHub Gist Markdown List Generator
 
-## Behavior
-- Always prints the Markdown to stdout.
-- If LIST_GIST_ID and GIST_TOKEN are set, also PATCHes that gist file.
+This script automatically generates a sortable markdown table of all your public GitHub gists
+and updates a target gist with the generated list. Perfect for creating a portfolio, a showcase 
+of your code snippets and projects, or even a much faster way to see all of your public gists in one place.
 
-## Requirements
-Uses the GitHub API command line utility. Install it, then login:
-```
-gh auth login
-```
+Features:
+- Fetches all public gists from a GitHub username
+- Generates a clean, sortable markdown table
+- Includes gist metadata (title, files, language, date, links)
+- Uses custom icons for public/private status
+- Updates a target gist on GitHub automatically
+- Designed to be easily forkable and customizable
 
-Install dependencies via pip:
-```
-pip install requests
-```
+Usage:
+    python make-gist-list.py
 
-Run the script:
-```
-python3 make-gist-list.py
-```
+Environment Variables:
+    GITHUB_USERNAME (required) - GitHub username from which to fetch public gists
+    LIST_GIST_ID    (required) - Target gist ID to update with the generated list
+    GIST_TOKEN      (required) - GitHub Personal Access Token (classic type) with "gist" scope (required if updating a gist)
+    TARGET_MD_FILENAME (optional) - Filename for the markdown file in the target gist
 
-## Env:
-  GITHUB_USERNAME (required) GitHub username to list PUBLIC gists from
-  LIST_GIST_ID    (optional) The gist ID to overwrite (the list gist)
-  GIST_TOKEN      (optional) Has "gist" scope, required for updating the gist.
+Output:
+    - Always prints the generated markdown to stdout
+    - If LIST_GIST_ID and GIST_TOKEN are provided, the workflow updates the target gist
+    - Creates a clean sortable table with all public gist information
 
-## Output fields
+For detailed setup instructions, see README.md and SETUP.md files.
+
+Author: Rich Lewis
+Repository: https://github.com/RichLewis007/Make-Gist-List
+
+Output fields in the generated markdown table:
   Title (first line of gist description, truncated)
   Files (count)
   Lang (primary language by largest file)
   Public (always checking this)
   Updated (UTC)
   Link (to the gist)
-
 """
 
 from __future__ import annotations
@@ -196,8 +202,7 @@ def build_markdown(gists: list[dict], username: str, session: Session) -> str:
         except Exception:
             forks = "N/A"
 
-
-        public_flag = "✅" if g.get("public") else "❌"
+        public_flag = '✓' if g.get("public") else '✗'
         lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {comments} | {forks} |")
 
     lines += [
@@ -227,7 +232,7 @@ def main() -> int:
     # Always print Markdown to stdout
     print(md)
 
-    # Optionally update gist if both envs are present
+    # Update gist if both envs are present
     if cfg.list_gist_id and cfg.token:
         try:
             url = update_index_gist(s, cfg.list_gist_id, cfg.target_md, md, cfg.username)

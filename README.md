@@ -1,22 +1,23 @@
 # Make Gist List <img src="assets/icons/file-text.svg" alt="Documentation" width="20" height="20" style="vertical-align: middle;">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+<img src="assets/Make-Gist-List-readme-header.png" alt="Make-Gist-List-README-heading" width="1024" height="512" style="vertical-align: middle;">
 
 [![Update Gist List](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml/badge.svg)](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 > **Automatically generate and maintain a markdown list of all your public GitHub gists**
 
-A simple, lightweight Python script that fetches your public GitHub gists and creates a beautifully formatted markdown table. Perfect for maintaining an up-to-date index of your code snippets, utilities, and examples.
+A simple, lightweight Python script that fetches your public GitHub gists and creates an easy to read markdown table. Perfect for maintaining an up-to-date index of your code snippets, utilities, and examples.
 
 ## <img src="assets/icons/sparkle.svg" alt="Features" width="20" height="20" style="vertical-align: middle;"> Features
 
 - <img src="assets/icons/arrows-clockwise.svg" alt="Updates" width="20" height="20" style="vertical-align: middle;"> **Automatic Updates**: Runs daily via GitHub Actions
 - <img src="assets/icons/chart-bar.svg" alt="Data" width="20" height="20" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, and links
-- <img src="assets/icons/target.svg" alt="Integration" width="20" height="20" style="vertical-align: middle;"> **Gist Integration**: Optionally updates a target gist with the generated list
+- <img src="assets/icons/target.svg" alt="Integration" width="20" height="20" style="vertical-align: middle;"> **Gist Integration**: Updates a target gist with the generated list
 - <img src="assets/icons/rocket.svg" alt="Setup" width="20" height="20" style="vertical-align: middle;"> **Easy Setup**: Fork, configure secrets, and you're done!
 - <img src="assets/icons/palette.svg" alt="Customization" width="20" height="20" style="vertical-align: middle;"> **Customizable**: Easy to modify output format and add new fields
 - <img src="assets/icons/lock.svg" alt="Security" width="20" height="20" style="vertical-align: middle;"> **Secure**: Uses minimal GitHub token permissions (gist scope only)
@@ -28,29 +29,34 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 1. **Fork this repository** <img src="assets/icons/arrow-up.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;">
 2. **Create a gist** to hold your list (copy its ID from the URL)
 3. **Set up GitHub secrets** in your forked repo:
-   - `GITHUB_USERNAME`: Your GitHub username
    - `LIST_GIST_ID`: The gist ID you created
    - `GIST_TOKEN`: A GitHub token with "gist" scope
+   - *Note: `GITHUB_USERNAME` is automatically set to the repository owner*
 4. **That's it!** <img src="assets/icons/party-popper.svg" alt="Success" width="20" height="20" style="vertical-align: middle;"> The workflow runs daily at 13:00 UTC
 
 ### Option 2: Run Locally
 
 ```bash
-# Clone and setup
+# 1. Clone the repository
 git clone https://github.com/your-username/Make-Gist-List.git
 cd Make-Gist-List
 
-# Install dependencies
+# 2. Create environment file from example
+cp env.example .env
+
+# 3. Edit .env file with your values
+# GITHUB_USERNAME=your-username  # Required for local runs
+# LIST_GIST_ID=your-gist-id      
+# GIST_TOKEN=your-github-token   
+
+# 4. Install dependencies
 pip install .
 
-# Set environment variables
-export GITHUB_USERNAME="your-username"
-export LIST_GIST_ID="your-gist-id"  # Optional
-export GIST_TOKEN="your-github-token"  # Optional
-
-# Run the script
+# 5. Run the script
 python make-gist-list.py
 ```
+
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
 
 ## <img src="assets/icons/clipboard-text.svg" alt="Output" width="20" height="20" style="vertical-align: middle;"> What You Get
 
@@ -78,8 +84,8 @@ _Generated by [Make Gist List](https://github.com/your-username/Make-Gist-List).
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `GITHUB_USERNAME` | <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> | Your GitHub username |
-| `LIST_GIST_ID` | <img src="assets/icons/x.svg" alt="Optional" width="16" height="16" style="vertical-align: middle;"> | ID of the gist to update (optional) |
-| `GIST_TOKEN` | <img src="assets/icons/x.svg" alt="Optional" width="16" height="16" style="vertical-align: middle;"> | GitHub token with "gist" scope (required if updating a gist) |
+| `LIST_GIST_ID` | <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> | ID of the gist to update |
+| `GIST_TOKEN` | <img src="assets/icons/check.svg" alt="Required" width="16" height="16" style="vertical-align: middle;"> | GitHub token with "gist" scope |
 | `TARGET_MD_FILENAME` | <img src="assets/icons/x.svg" alt="Optional" width="16" height="16" style="vertical-align: middle;"> | Filename for the markdown in the gist (defaults to "Public-Gists.md") |
 
 ### GitHub Token Setup
@@ -103,7 +109,7 @@ The script is designed to be easily customizable:
 ## <img src="assets/icons/books.svg" alt="Documentation" width="20" height="20" style="vertical-align: middle;"> Documentation
 
 - **[Setup Guide](SETUP.md)** - Detailed step-by-step setup instructions
-- **[Environment Examples](env.example)** - Example environment variable configuration
+- **[Environment Example](env.example)** - Example environment variable configuration
 - **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to this project
 
 ## <img src="assets/icons/wrench.svg" alt="Requirements" width="20" height="20" style="vertical-align: middle;"> Requirements
@@ -137,13 +143,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**<img src="assets/icons/star.svg" alt="Star" width="20" height="20" style="vertical-align: middle;"> If this project helps you, please give it a star!**
+**⭐ If this project helps you, please give it a star!**
 
-**<img src="assets/icons/arrows-clockwise.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;"> Fork it to create your own gist list updater!**
+**<img src="assets/icons/arrow-up.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;"> Fork it to easily create your own gist list updater!**
 
-## Contributors ✨
+## <img src="assets/icons/users.svg" alt="Contributors" width="20" height="20" style="vertical-align: middle;"> Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -151,7 +157,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="#infra-RichLewis007" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Tests">⚠️</a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code">💻</a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Documentation">📖</a> <a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-RichLewis007" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code"><img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"></a> <a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"></a> <a href="#maintenance-RichLewis007" title="Maintenance"><img src="assets/icons/wrench.svg" alt="Maintenance" width="16" height="16" style="vertical-align: middle;"></a> <a href="#question-RichLewis007" title="Answering Questions"><img src="assets/icons/question.svg" alt="Questions" width="16" height="16" style="vertical-align: middle;"></a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href="#ideas-MindfulLearner" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"></a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=MindfulLearner" title="Code"><img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"></a></td>
     </tr>
   </tbody>
 </table>

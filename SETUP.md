@@ -47,9 +47,10 @@ Before you begin, make sure you have:
 2. **Click "New repository secret"**
 3. **Add these secrets one by one**:
 
+> <img src="assets/icons/lightbulb.svg" alt="Note" width="16" height="16" style="vertical-align: middle;"> **Note**: `GITHUB_USERNAME` is automatically set to the repository owner in GitHub Actions, so you don't need to create this secret!
+
 | Secret Name | Value | Description |
 |-------------|-------|-------------|
-| `GITHUB_USERNAME` | Your GitHub username | The username whose gists you want to list |
 | `LIST_GIST_ID` | The gist ID from Step 2 | The gist that will be updated with your list |
 | `GIST_TOKEN` | The GitHub token from Step 3 | Token with permission to update gists |
 
@@ -174,6 +175,84 @@ Modify the `list_public_gists()` function to:
 - **GitHub Community** forums
 
 ---
+
+## <img src="assets/icons/terminal.svg" alt="Local Command Line Usage" width="20" height="20" style="vertical-align: middle;"> Local Command Line Usage
+
+If you prefer to run the script locally on your machine instead of using GitHub Actions, follow these steps:
+
+### <img src="assets/icons/rocket.svg" alt="Quick Setup" width="20" height="20" style="vertical-align: middle;"> Quick Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/Make-Gist-List.git
+cd Make-Gist-List
+
+# 2. Create environment file from example
+cp env.example .env
+
+# 3. Edit the .env file with your values
+# (See detailed instructions below)
+
+# 4. Install dependencies
+pip install .
+
+# 5. Run the script
+python make-gist-list.py
+```
+
+### <img src="assets/icons/wrench.svg" alt="Environment Configuration" width="20" height="20" style="vertical-align: middle;"> Environment Configuration
+
+1. **Copy the example file**:
+   ```bash
+   cp env.example .env
+   ```
+
+2. **Edit the `.env` file** with your values:
+   ```bash
+   # Required for local runs
+   GITHUB_USERNAME=your-github-username
+   
+   # Required - for updating a gist
+   LIST_GIST_ID=your-gist-id-here
+   GIST_TOKEN=your-github-token-here
+   
+   # Optional - customized filename in the gist
+   TARGET_MD_FILENAME=Public-Gists.md
+   ```
+
+3. **Get your GitHub token** (if you want to update a gist):
+   - Go to [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)
+   - Click "Generate new token (classic)"
+   - Select the "gist" scope
+   - Copy the token and add it to your `.env` file
+
+### <img src="assets/icons/test-tube.svg" alt="Testing Locally" width="20" height="20" style="vertical-align: middle;"> Testing Locally
+
+```bash
+# Test with just username (generates markdown to stdout)
+export GITHUB_USERNAME="your-username"
+python make-gist-list.py
+
+# Test with gist updating (requires GIST_TOKEN and LIST_GIST_ID)
+python make-gist-list.py
+```
+
+### <img src="assets/icons/lightbulb.svg" alt="Local vs GitHub Actions" width="20" height="20" style="vertical-align: middle;"> Local vs GitHub Actions
+
+| Feature | Local Command Line | GitHub Actions |
+|---------|-------------------|----------------|
+| **Setup** | Manual environment setup | Automatic with secrets |
+| **Scheduling** | Manual runs | Daily automatic |
+| **GITHUB_USERNAME** | Must set manually | Auto-set to repo owner |
+| **Dependencies** | Install locally | Managed by workflow |
+| **Best for** | Development, testing | Production, automation |
+
+### <img src="assets/icons/wrench.svg" alt="Local Development Tips" width="20" height="20" style="vertical-align: middle;"> Local Development Tips
+
+- **Use `.env` file**: Keeps your credentials secure and out of version control
+- **Test without gist updating**: Just set `GITHUB_USERNAME` to see the output
+- **Debug mode**: Add `print()` statements to see what's happening
+- **Customize output**: Modify the `build_markdown()` function for different formats
 
 ## <img src="assets/icons/party-popper.svg" alt="Success" width="20" height="20" style="vertical-align: middle;"> You're All Set!
 

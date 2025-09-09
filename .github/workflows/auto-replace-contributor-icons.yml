@@ -1,0 +1,137 @@
+name: Auto-replace Contributor Icons
+
+# This workflow automatically replaces All Contributors emojis with custom Phosphor icons
+# when the All Contributors bot creates or updates a pull request.
+#
+# Trigger: Pull requests that modify README.md from allcontributors[bot]
+# Action: Runs icon replacement script and commits changes back to the same PR
+# Result: Custom icons are automatically applied to contributor sections
+#
+# Dependencies:
+# - scripts/replace-contribution-icons.js (icon replacement script)
+# - assets/icons/ (custom Phosphor SVG icons)
+# - Repository permissions: Read and write access for GitHub Actions
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'README.md'
+  workflow_dispatch:  # Allow manual triggering for testing
+
+jobs:
+  debug-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug PR information (always runs)
+        run: |
+          echo "🔍 Debug Information:"
+          echo "Actor: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "PR User: ${{ github.event.pull_request.user.login }}"
+            echo "PR Title: ${{ github.event.pull_request.title }}"
+            echo "PR Number: ${{ github.event.pull_request.number }}"
+            echo "PR Head Ref: ${{ github.event.pull_request.head.ref }}"
+          fi
+
+  replace-icons:
+    runs-on: ubuntu-latest
+    if: github.actor == 'app/allcontributors' || contains(github.event.pull_request.user.login, 'allcontributors')
+    needs: debug-info
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Debug PR information
+        run: |
+          echo "🔍 Debug Information:"
+          echo "Actor: ${{ github.actor }}"
+          echo "PR User: ${{ github.event.pull_request.user.login }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "Event Type: ${{ github.event_name }}"
+
+      - name: Check if PR is from all-contributors bot
+        id: check-bot
+        run: |
+          if [[ "${{ github.event.pull_request.user.login }}" == "app/allcontributors" ]] || [[ "${{ github.actor }}" == "app/allcontributors" ]]; then
+            echo "is_allcontributors=true" >> $GITHUB_OUTPUT
+            echo "✅ Detected All Contributors bot PR #${{ github.event.pull_request.number }}"
+          else
+            echo "is_allcontributors=false" >> $GITHUB_OUTPUT
+            echo "❌ Not an All Contributors bot PR (user: ${{ github.event.pull_request.user.login }}, actor: ${{ github.actor }})"
+          fi
+
+      - name: Run icon replacement script
+        if: steps.check-bot.outputs.is_allcontributors == 'true'
+        run: |
+          node scripts/replace-contribution-icons.js
+
+      - name: Check for changes
+        if: steps.check-bot.outputs.is_allcontributors == 'true'
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes needed - icons are already up to date"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected - icons have been updated"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check-bot.outputs.is_allcontributors == 'true' && steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Replace contributor emojis with custom icons
+
+          - Automatically replaced emojis with custom Phosphor icons
+          - Maintains visual consistency across the project
+          - Triggered by All Contributors bot PR"
+          git push
+
+      - name: Add automation comment
+        if: steps.check-bot.outputs.is_allcontributors == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const hasChanges = '${{ steps.check-changes.outputs.has_changes }}' === 'true';
+            const icon = hasChanges ? '✅' : 'ℹ️';
+            const message = hasChanges ? 
+              'Custom icons have been automatically applied to this PR!' : 
+              'All icons were already up to date - no changes needed.';
+            
+            const fullMessage = `${icon} **Icon Automation Complete**
+            
+            ${message}
+            
+            🤖 *Automated by Make-Gist-List icon replacement workflow*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: fullMessage
+            });
+
+      - name: Create summary
+        if: steps.check-bot.outputs.is_allcontributors == 'true'
+        run: |
+          if [[ "${{ steps.check-changes.outputs.has_changes }}" == "true" ]]; then
+            echo "✅ Successfully updated contributor icons in README.md"
+            echo "🔗 PR: ${{ github.event.pull_request.html_url }}"
+          else
+            echo "ℹ️ No icon updates needed - all icons are current"
+          fi
