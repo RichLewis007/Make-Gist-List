@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - **Batched GraphQL implementation** for efficient star count fetching
 - **Engagement metrics** - Comments, forks, and stars in the generated gist list
 - **Professional logging system** with configurable verbosity levels and structured output
+- **Automatic .env file loading** using python-dotenv for seamless environment variable management
 
 ### Changed
 - **Switched from environment secrets to repository secrets** for easier forking
@@ -30,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - **Enhanced code documentation** with comprehensive docstrings and inline comments
 - **Upgraded logging system** - Replaced print statements with professional Python logging module
 - **Improved fallback handling** - Show "N/A" instead of "0" when star count data is unavailable
+- **Fixed star count functionality** - Resolved GraphQL API authentication and node ID conversion issues
+- **Enhanced environment variable handling** - Added automatic .env file loading with python-dotenv
 
 ### Fixed
 - **Gist markdown compatibility** - removed HTML img tags that don't work in gists
