@@ -157,8 +157,8 @@ Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code"><img src="assets/icons/terminal.svg" alt="Code" width="16" height="16" style="vertical-align: middle;"></a> <a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"></a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href="#ideas-MindfulLearner" title="Ideas, Planning, & Feedback"><img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;"></a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RichLewis007"><img src="https://avatars.githubusercontent.com/u/1149213?v=4?s=100" width="100px;" alt="Rich Lewis"/><br /><sub><b>Rich Lewis</b></sub></a><br /><a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=RichLewis007" title="Code">💻</a> <a href="#ideas-RichLewis007" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://dima-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/170177550?v=4?s=100" width="100px;" alt="Joshua Dimaunahan"/><br /><sub><b>Joshua Dimaunahan</b></sub></a><br /><a href="#ideas-MindfulLearner" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/RichLewis007/Make-Gist-List/commits?author=MindfulLearner" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
