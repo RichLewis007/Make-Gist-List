@@ -220,6 +220,15 @@ uv run python make-gist-list.py
    
    # Optional - customize filename in the gist
    TARGET_MD_FILENAME=Public-Gists.md
+   
+   # Optional - timezone for timestamp display
+   TIMEZONE=America/New_York
+   
+   # Optional - date format for timestamp display
+   DATE_FORMAT=DD-MM-YYYY
+   
+   # Optional - time format for timestamp display
+   TIME_FORMAT=12
    ```
 
 3. **Get your GitHub token** (if you want to update a gist):
@@ -255,6 +264,62 @@ python make-gist-list.py
 - **Test without gist updating**: Just set `GITHUB_USERNAME` to see the output
 - **Debug mode**: Add `print()` statements to see what's happening
 - **Customize output**: Modify the `build_markdown()` function for different formats
+
+### <img src="assets/icons/clock.svg" alt="Timezone Configuration" width="20" height="20" style="vertical-align: middle;"> Timezone Configuration
+
+The "Last updated" timestamp in your gist list can be displayed in your preferred timezone:
+
+**Common timezone examples:**
+- `TIMEZONE=UTC` - Coordinated Universal Time (default)
+- `TIMEZONE=America/New_York` - Eastern Time (US)
+- `TIMEZONE=America/Chicago` - Central Time (US)
+- `TIMEZONE=America/Denver` - Mountain Time (US)
+- `TIMEZONE=America/Los_Angeles` - Pacific Time (US)
+- `TIMEZONE=Europe/London` - Greenwich Mean Time
+- `TIMEZONE=Europe/Paris` - Central European Time
+- `TIMEZONE=Asia/Tokyo` - Japan Standard Time
+
+**How it works:**
+- The script automatically detects your timezone and displays the abbreviation (e.g., "EST", "PST", "GMT")
+- If an invalid timezone is specified, it falls back to UTC
+- The timezone setting applies to both local runs and GitHub Actions
+
+### <img src="assets/icons/calendar.svg" alt="Date & Time Format Configuration" width="20" height="20" style="vertical-align: middle;"> Date & Time Format Configuration
+
+Customize how the "Last updated" timestamp is displayed with date and time format options:
+
+**Date Format Options:**
+- `DATE_FORMAT=YYYY-MM-DD` - ISO format (2025-09-09) - **Default**
+- `DATE_FORMAT=DD-MM-YYYY` - European format (09-09-2025)
+- `DATE_FORMAT=MM-DD-YYYY` - US format (09-09-2025)
+
+**Time Format Options:**
+- `TIME_FORMAT=24` - 24-hour format (18:10) - **Default**
+- `TIME_FORMAT=12` - 12-hour format with AM/PM (6:10 PM)
+
+**Example Combinations:**
+```bash
+# European style with 12-hour time
+DATE_FORMAT=DD-MM-YYYY
+TIME_FORMAT=12
+# Result: "09-09-2025 6:10 PM EDT"
+
+# US style with 24-hour time
+DATE_FORMAT=MM-DD-YYYY
+TIME_FORMAT=24
+# Result: "09-09-2025 18:10 EDT"
+
+# ISO style with 12-hour time
+DATE_FORMAT=YYYY-MM-DD
+TIME_FORMAT=12
+# Result: "2025-09-09 6:10 PM EDT"
+```
+
+**How it works:**
+- Date formats use YYYY (year), MM (month), DD (day) placeholders
+- Time format "12" includes AM/PM, "24" uses 24-hour notation
+- All formats work with any timezone setting
+- Invalid formats fall back to defaults (YYYY-MM-DD, 24-hour)
 
 ## <img src="assets/icons/party-popper.svg" alt="Success" width="20" height="20" style="vertical-align: middle;"> You're All Set!
 

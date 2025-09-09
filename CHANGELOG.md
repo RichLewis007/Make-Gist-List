@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - **Educational documentation** - Comprehensive optimization techniques guide for developers
 - **Batched GraphQL implementation** for efficient star count fetching
 - **Engagement metrics** - Comments, forks, and stars in the generated gist list
+- **Timezone configuration** - Customizable timestamp display with TIMEZONE environment variable
+- **Date and time format configuration** - Customizable date (YYYY-MM-DD, DD-MM-YYYY, MM-DD-YYYY) and time (12/24-hour) formats
 - **Professional logging system** with configurable verbosity levels and structured output
 - **Automatic .env file loading** using python-dotenv for seamless environment variable management
 
