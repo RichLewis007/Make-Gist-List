@@ -150,8 +150,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Thanks goes to these wonderful people ([emoji key](docs/emoji-key.md)):
 
-## Contributors
-
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
