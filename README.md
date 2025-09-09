@@ -123,7 +123,7 @@ The script is designed to be easily customizable:
 - **[Environment Example](env.example)** - Example environment variable configuration
 - **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to this project
 
-> **Are you interested in how this open source program was crafted?**\
+> **Are you interested in how this open source program was crafted?**
 > 
 > Do you want to learn how the open source developers made this program efficient, how the code was organized and errors
 > were logged and handled? Check out the accompanied educational guide which goes into technical depth, discussing the 
