@@ -74,13 +74,14 @@ uv run python make-gist-list.py
 
 > <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: The script automatically loads your `.env` file. For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
 
-### <img src="assets/icons/gear.svg" alt="Testing with Different Configurations" width="20" height="20" style="vertical-align: middle;"> Testing with Different Configurations
+### <img src="assets/icons/gear.svg" alt="Alternative Configuration Methods" width="20" height="20" style="vertical-align: middle;"> Alternative Configuration Methods
 
-To test with different timezone, date, or time format settings without modifying your main `.env` file:
+If you prefer not to use a `.env` file, you can configure the script using other methods:
 
+**Method 1: Custom Environment File**
 ```bash
-# Create a test configuration file
-cat > test.env << EOF
+# Create your configuration file
+cat > my-config.env << EOF
 GITHUB_USERNAME=your-username
 LIST_GIST_ID=your-gist-id
 GIST_TOKEN=your-token
@@ -89,11 +90,21 @@ DATE_FORMAT=DD-MM-YYYY
 TIME_FORMAT=12
 EOF
 
-# Run with test configuration
-uv run --env-file test.env python make-gist-list.py
+# Run with your configuration
+uv run --env-file my-config.env python make-gist-list.py
 ```
 
-This approach is perfect for testing different format combinations without affecting your main configuration.
+**Method 2: Export Variables**
+```bash
+# Set your preferred settings
+export GITHUB_USERNAME="your-username"
+export TIMEZONE="America/New_York"
+export DATE_FORMAT="MM-DD-YYYY"
+export TIME_FORMAT="12"
+
+# Run the script
+uv run python make-gist-list.py
+```
 
 ## <img src="assets/icons/clipboard-text.svg" alt="Output" width="25" height="25" style="vertical-align: middle;"> What You Get
 

@@ -265,14 +265,14 @@ python make-gist-list.py
 - **Debug mode**: Add `print()` statements to see what's happening
 - **Customize output**: Modify the `build_markdown()` function for different formats
 
-### <img src="assets/icons/gear.svg" alt="Testing with Different Configurations" width="20" height="20" style="vertical-align: middle;"> Testing with Different Configurations
+### <img src="assets/icons/gear.svg" alt="Configuration Methods" width="20" height="20" style="vertical-align: middle;"> Configuration Methods
 
-When developing or testing different timezone/format combinations, you can use separate environment files:
+You can configure the script using any of these methods - choose the one that works best for your workflow:
 
 **Method 1: Using `--env-file` (Recommended)**
 ```bash
-# Create a test configuration
-cat > test-european.env << EOF
+# Create your configuration file
+cat > my-settings.env << EOF
 GITHUB_USERNAME=your-username
 LIST_GIST_ID=your-gist-id
 GIST_TOKEN=your-token
@@ -281,13 +281,13 @@ DATE_FORMAT=DD-MM-YYYY
 TIME_FORMAT=12
 EOF
 
-# Run with European settings
-uv run --env-file test-european.env python make-gist-list.py
+# Run with your settings
+uv run --env-file my-settings.env python make-gist-list.py
 ```
 
-**Method 2: Using `export` (Alternative)**
+**Method 2: Using `export`**
 ```bash
-# Export variables in current shell session
+# Set your preferred settings in your shell
 export GITHUB_USERNAME="your-username"
 export TIMEZONE="America/New_York"
 export DATE_FORMAT="MM-DD-YYYY"
@@ -308,11 +308,11 @@ uv run python make-gist-list.py
 ```
 
 **Benefits of Method 1 (`--env-file`):**
-- ✅ **Clean separation** - Test configs don't affect main `.env`
+- ✅ **Organized** - Keep your settings in a dedicated file
 - ✅ **Reliable** - uv handles environment variable loading
 - ✅ **Portable** - Works consistently across systems
-- ✅ **Secure** - Add test files to `.gitignore`
-- ✅ **Flexible** - Easy to switch between configurations
+- ✅ **Secure** - Add custom config files to `.gitignore`
+- ✅ **Flexible** - Easy to maintain and modify
 
 ### <img src="assets/icons/clock.svg" alt="Timezone Configuration" width="20" height="20" style="vertical-align: middle;"> Timezone Configuration
 
