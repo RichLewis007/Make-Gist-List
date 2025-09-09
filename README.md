@@ -28,9 +28,9 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 1. **Fork this repository** <img src="assets/icons/arrow-up.svg" alt="Fork" width="20" height="20" style="vertical-align: middle;">
 2. **Create a gist** to hold your list (copy its ID from the URL)
 3. **Set up GitHub secrets** in your forked repo:
-   - `GITHUB_USERNAME`: Your GitHub username
    - `LIST_GIST_ID`: The gist ID you created
    - `GIST_TOKEN`: A GitHub token with "gist" scope
+   - *Note: `GITHUB_USERNAME` is automatically set to the repository owner*
 4. **That's it!** <img src="assets/icons/party-popper.svg" alt="Success" width="20" height="20" style="vertical-align: middle;"> The workflow runs daily at 13:00 UTC
 
 ### Option 2: Run Locally
@@ -44,7 +44,7 @@ cd Make-Gist-List
 pip install .
 
 # Set environment variables
-export GITHUB_USERNAME="your-username"
+export GITHUB_USERNAME="your-username"  # Required for local runs
 export LIST_GIST_ID="your-gist-id"  # Optional
 export GIST_TOKEN="your-github-token"  # Optional
 

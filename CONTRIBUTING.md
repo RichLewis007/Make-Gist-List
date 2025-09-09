@@ -109,7 +109,7 @@ python make-gist-list.py
 ### Testing Changes
 ```bash
 # Test with your own gists
-export GITHUB_USERNAME="your-username"
+export GITHUB_USERNAME="your-username"  # Required for local testing
 export LIST_GIST_ID="your-gist-id"
 export GIST_TOKEN="your-token"
 

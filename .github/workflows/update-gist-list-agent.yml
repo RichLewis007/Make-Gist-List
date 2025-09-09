@@ -21,7 +21,7 @@ jobs:
       # Generate Markdown and optionally update gist
       - name: Generate Markdown and update gist
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
           LIST_GIST_ID: ${{ secrets.LIST_GIST_ID }}
           TARGET_MD_FILENAME: ${{ secrets.TARGET_MD_FILENAME || 'Public-Gists.md' }}

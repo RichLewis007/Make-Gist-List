@@ -47,9 +47,10 @@ Before you begin, make sure you have:
 2. **Click "New repository secret"**
 3. **Add these secrets one by one**:
 
+> <img src="assets/icons/lightbulb.svg" alt="Note" width="16" height="16" style="vertical-align: middle;"> **Note**: `GITHUB_USERNAME` is automatically set to the repository owner in GitHub Actions, so you don't need to create this secret!
+
 | Secret Name | Value | Description |
 |-------------|-------|-------------|
-| `GITHUB_USERNAME` | Your GitHub username | The username whose gists you want to list |
 | `LIST_GIST_ID` | The gist ID from Step 2 | The gist that will be updated with your list |
 | `GIST_TOKEN` | The GitHub token from Step 3 | Token with permission to update gists |
 

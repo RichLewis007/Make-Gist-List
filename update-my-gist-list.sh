@@ -20,7 +20,7 @@
 # If you need to run this script on a different operating system, you will need to use a different scripting language.
 # For example, if you need to run a similar script on Windows, you will need to use PowerShell.
 
-export GITHUB_USERNAME="your-username-here"
+export GITHUB_USERNAME="your-username-here"  # Required for local runs
 export LIST_GIST_ID="your-gist-id-here"
 export GIST_TOKEN="your-github-token-here"
 
