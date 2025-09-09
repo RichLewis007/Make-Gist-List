@@ -19,7 +19,7 @@ This document explains the optimization strategies and programming techniques us
 When we first implemented star count fetching, we fell into the classic **N+1 query problem**:
 
 ```python
-# ❌ Inefficient: N+1 queries
+# <img src="../assets/icons/x.svg" alt="Inefficient" width="16" height="16" style="vertical-align: middle;"> Inefficient: N+1 queries
 for gist in gists:
     star_count = get_gist_star_count(session, gist['id'])  # 1 query per gist
 ```
@@ -36,7 +36,7 @@ for gist in gists:
 We solved this by implementing **batched GraphQL queries**:
 
 ```python
-# ✅ Efficient: Single batched query
+# <img src="../assets/icons/check.svg" alt="Efficient" width="16" height="16" style="vertical-align: middle;"> Efficient: Single batched query
 def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[str, int]:
     # Build one GraphQL query for all gists
     query_parts = []
@@ -71,7 +71,7 @@ Our project demonstrates a **hybrid approach** that leverages the strengths of b
 
 #### REST API Usage
 ```python
-# ✅ Good for: Simple, paginated data fetching
+# <img src="../assets/icons/check.svg" alt="Good for" width="16" height="16" style="vertical-align: middle;"> Good for: Simple, paginated data fetching
 gists = list_public_gists(s, cfg.username)  # Simple pagination
 comments = session.get(f"{API}/gists/{gist_id}/comments")  # Individual resources
 ```
@@ -84,7 +84,7 @@ comments = session.get(f"{API}/gists/{gist_id}/comments")  # Individual resource
 
 #### GraphQL Usage
 ```python
-# ✅ Good for: Complex, batched queries
+# <img src="../assets/icons/check.svg" alt="Good for" width="16" height="16" style="vertical-align: middle;"> Good for: Complex, batched queries
 def get_gist_star_counts_batch(session: Session, gist_ids: List[str]):
     # Single query for multiple resources with specific fields
 ```
