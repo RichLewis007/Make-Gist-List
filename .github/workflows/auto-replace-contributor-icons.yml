@@ -21,7 +21,7 @@ on:
 jobs:
   replace-icons:
     runs-on: ubuntu-latest
-    if: github.actor == 'allcontributors[bot]' || contains(github.event.pull_request.user.login, 'allcontributors')
+    if: github.actor == 'app/allcontributors' || contains(github.event.pull_request.user.login, 'allcontributors')
     
     steps:
       - name: Checkout repository
@@ -47,7 +47,7 @@ jobs:
       - name: Check if PR is from all-contributors bot
         id: check-bot
         run: |
-          if [[ "${{ github.event.pull_request.user.login }}" == "allcontributors[bot]" ]] || [[ "${{ github.actor }}" == "allcontributors[bot]" ]]; then
+          if [[ "${{ github.event.pull_request.user.login }}" == "app/allcontributors" ]] || [[ "${{ github.actor }}" == "app/allcontributors" ]]; then
             echo "is_allcontributors=true" >> $GITHUB_OUTPUT
             echo "✅ Detected All Contributors bot PR #${{ github.event.pull_request.number }}"
           else
