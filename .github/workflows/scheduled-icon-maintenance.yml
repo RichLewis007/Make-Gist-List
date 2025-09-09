@@ -55,7 +55,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git commit -m "🎨 Update contributor icons
+          git commit -m "Update contributor icons
 
           - Replaced any remaining emojis with custom Phosphor icons
           - Scheduled maintenance to ensure visual consistency

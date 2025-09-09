@@ -21,7 +21,7 @@ on:
 jobs:
   replace-icons:
     runs-on: ubuntu-latest
-    if: github.actor == 'allcontributors[bot]'
+    if: github.actor == 'allcontributors[bot]' || contains(github.event.pull_request.user.login, 'allcontributors')
     
     steps:
       - name: Checkout repository
@@ -35,15 +35,24 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug PR information
+        run: |
+          echo "🔍 Debug Information:"
+          echo "Actor: ${{ github.actor }}"
+          echo "PR User: ${{ github.event.pull_request.user.login }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "Event Type: ${{ github.event_name }}"
+
       - name: Check if PR is from all-contributors bot
         id: check-bot
         run: |
-          if [[ "${{ github.event.pull_request.user.login }}" == "allcontributors[bot]" ]]; then
+          if [[ "${{ github.event.pull_request.user.login }}" == "allcontributors[bot]" ]] || [[ "${{ github.actor }}" == "allcontributors[bot]" ]]; then
             echo "is_allcontributors=true" >> $GITHUB_OUTPUT
             echo "✅ Detected All Contributors bot PR #${{ github.event.pull_request.number }}"
           else
             echo "is_allcontributors=false" >> $GITHUB_OUTPUT
-            echo "❌ Not an All Contributors bot PR (user: ${{ github.event.pull_request.user.login }})"
+            echo "❌ Not an All Contributors bot PR (user: ${{ github.event.pull_request.user.login }}, actor: ${{ github.actor }})"
           fi
 
       - name: Run icon replacement script
@@ -69,7 +78,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git commit -m "🎨 Replace contributor emojis with custom icons
+          git commit -m "Replace contributor emojis with custom icons
 
           - Automatically replaced emojis with custom Phosphor icons
           - Maintains visual consistency across the project
