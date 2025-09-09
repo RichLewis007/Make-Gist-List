@@ -1,0 +1,71 @@
+name: Scheduled Icon Maintenance
+
+# This workflow runs daily maintenance to ensure all contributor icons are up-to-date.
+# It catches any missed icon updates and maintains visual consistency across the project.
+#
+# Trigger: Daily at 2 AM UTC (or manual trigger via workflow_dispatch)
+# Action: Runs icon replacement script and commits any needed updates
+# Result: Ensures all contributor emojis are replaced with custom icons
+#
+# Dependencies:
+# - scripts/replace-contribution-icons.js (icon replacement script)
+# - assets/icons/ (custom Phosphor SVG icons)
+# - Repository permissions: Read and write access for GitHub Actions
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC to catch any missed icon updates
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-icons:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run icon replacement script
+        run: |
+          node scripts/replace-contribution-icons.js
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes needed - icons are already up to date"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected - icons have been updated"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "🎨 Update contributor icons
+
+          - Replaced any remaining emojis with custom Phosphor icons
+          - Scheduled maintenance to ensure visual consistency
+          - Automated icon replacement for contributor section"
+          git push
+
+      - name: Create summary
+        run: |
+          if [[ "${{ steps.check-changes.outputs.has_changes }}" == "true" ]]; then
+            echo "✅ Successfully updated contributor icons in README.md"
+          else
+            echo "ℹ️ No icon updates needed - all icons are current"
+          fi
