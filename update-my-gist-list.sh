@@ -4,6 +4,7 @@
 
 # CONFIGURE: Edit this file on your local computer and fill in your own values.
 # Make sure to replace the "your-username-here" and "your-gist-id-here" and "your-github-token-here" values.
+# Make script executable: chmod u+x update-my-gist-list.sh 
 
 # REQUIREMENTS: You'll need to have the latest version of Python installed on your local computer.
 # You can check the version of Python you have installed by typing: "python --version" in the terminal.
@@ -16,13 +17,14 @@
 # TO RUN: On MacOS, you can run this script by first making it  executable by typing: "chmod +x update-my-gist-list.sh" in the terminal.
 # Then you can run the script by typing: "./update-my-gist-list.sh" in the terminal.
 
-# IMPORTANT:This 'bash'script may work on macOS, but it may not work on your Linux distro, Windows, or other operating systems.
+# IMPORTANT: This 'bash' script may work on macOS, but it may not work on your Linux distro, Windows, or other operating systems.
 # If you need to run this script on a different operating system, you will need to use a different scripting language.
 # For example, if you need to run a similar script on Windows, you will need to use PowerShell.
 
 export GITHUB_USERNAME="your-username-here"  # Required for local runs
 export LIST_GIST_ID="your-gist-id-here"      # Required for updating a gist
 export GIST_TOKEN="your-github-token-here"   # Required for updating a gist
+export TARGET_MD_FILENAME=Public-Gists.md    # Optional - customize filename in the gist
 
 # Run the script
-python make-gist-list.py
+uv run python make-gist-list.py
