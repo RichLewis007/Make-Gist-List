@@ -153,7 +153,7 @@ def primary_language(files: Dict[str, Dict[str, Any]]) -> str:
             best = (lang, size)
     return best[0] if best else ""
 
-def build_markdown(gists: list[dict], username: str) -> str:
+def build_markdown(gists: list[dict], username: str, session: Session) -> str:
     # UTC time for display
     now_utc = datetime.now(ZoneInfo("UTC"))
     timestamp = now_utc.strftime("%Y-%m-%d %H:%M UTC")
@@ -170,8 +170,8 @@ def build_markdown(gists: list[dict], username: str) -> str:
     lines += [
         f"**Total public gists:** {count}",
         "",
-        "| Title | Files | Lang | Public | Updated | Link |",
-        "|---|---:|---|:---:|---|---|",
+        "| Title | Files | Lang | Public | Updated | Link | Comments | Forks",
+        "|---|---:|---|:---:|---|---|---|---|",
     ]
 
     gists_sorted = sorted(gists, key=lambda x: x.get("updated_at") or "", reverse=True)
@@ -188,9 +188,22 @@ def build_markdown(gists: list[dict], username: str) -> str:
         except Exception:
             updated = g.get("updated_at") or ""
         url = g.get("html_url") or ""
+        gist_id = g.get("id", "")
+
+        # fetching stars and forks for each gist, because the api doesn't provide them
+        try:
+            comments_response = session.get(f"{API}/gists/{gist_id}/comments")
+            comments = len(comments_response.json()) if comments_response.status_code == 200 else 0
+        except Exception:
+            comments = "N/A"
+        try:
+            forks_response = session.get(f"{API}/gists/{gist_id}/forks")
+            forks = len(forks_response.json()) if forks_response.status_code == 200 else 0
+        except Exception:
+            forks = "N/A"
 
         public_flag = '✓' if g.get("public") else '✗'
-        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) |")
+        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {comments} | {forks} |")
 
     lines += [
         "",
@@ -214,7 +227,7 @@ def main() -> int:
     cfg = load_cfg()
     s = make_session(cfg.token)
     gists = list_public_gists(s, cfg.username)
-    md = build_markdown(gists, cfg.username)
+    md = build_markdown(gists, cfg.username, s)
 
     # Always print Markdown to stdout
     print(md)
