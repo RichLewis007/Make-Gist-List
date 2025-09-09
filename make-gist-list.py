@@ -5,15 +5,15 @@
 Make Gist List - GitHub Gist Markdown List Generator
 
 This script automatically generates a sortable markdown table of all your public GitHub gists
-and optionally updates a target gist with the generated list. Perfect for creating a portfolio
-or showcase of your code snippets and projects.
+and updates a target gist with the generated list. Perfect for creating a portfolio, a showcase 
+of your code snippets and projects, or even a much faster way to see all of your public gists in one place.
 
 Features:
 - Fetches all public gists from a GitHub username
 - Generates a clean, sortable markdown table
 - Includes gist metadata (title, files, language, date, links)
 - Uses custom icons for public/private status
-- Optionally updates a target gist automatically
+- Updates a target gist on GitHub automatically
 - Designed to be easily forkable and customizable
 
 Usage:
@@ -21,8 +21,8 @@ Usage:
 
 Environment Variables:
     GITHUB_USERNAME (required) - GitHub username from which to fetch public gists
-    LIST_GIST_ID    (optional) - Target gist ID to update with the generated list
-    GIST_TOKEN      (optional) - GitHub Personal Access Token (classic type) with "gist" scope (required if updating a gist)
+    LIST_GIST_ID    (required) - Target gist ID to update with the generated list
+    GIST_TOKEN      (required) - GitHub Personal Access Token (classic type) with "gist" scope (required if updating a gist)
     TARGET_MD_FILENAME (optional) - Filename for the markdown file in the target gist
 
 Output:
@@ -219,7 +219,7 @@ def main() -> int:
     # Always print Markdown to stdout
     print(md)
 
-    # Optionally update gist if both envs are present
+    # Update gist if both envs are present
     if cfg.list_gist_id and cfg.token:
         try:
             url = update_index_gist(s, cfg.list_gist_id, cfg.target_md, md, cfg.username)

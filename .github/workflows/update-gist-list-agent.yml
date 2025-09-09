@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
 
-      # Generate Markdown and optionally update gist
+      # Generate Markdown and update gist
       - name: Generate Markdown and update gist
         env:
           GITHUB_USERNAME: ${{ github.repository_owner }}

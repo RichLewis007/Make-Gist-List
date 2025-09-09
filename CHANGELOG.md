@@ -8,15 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ## [Unreleased]
 
 ### Added
-- Enhanced documentation with better discoverability
-- Improved setup guide with troubleshooting
-- Better contributing guidelines
-- Enhanced README with badges and clear structure
+- **All Contributors integration** with custom Phosphor icons
+- **Automated icon replacement system** for contributor badges
+- **Comprehensive local command line documentation** in SETUP.md
+- **Repository secrets support** for better forkability
+- **Custom icon assets** (30+ Phosphor icons) for enhanced visual appeal
+- **Automated workflows** for icon maintenance and contributor updates
+- **Enhanced README** with improved badge layout and local usage instructions
 
 ### Changed
-- Simplified project structure for easier forking
-- Removed complex multi-repo functionality
-- Focused on core gist list generation functionality
+- **Switched from environment secrets to repository secrets** for easier forking
+- **Updated gist icons** from emojis to Unicode symbols (✓/✗) for better gist compatibility
+- **Improved documentation structure** with clear local vs GitHub Actions usage
+- **Enhanced environment variable documentation** with clearer required/optional distinctions
+- **Streamlined workflow configuration** using built-in GitHub variables
+
+### Fixed
+- **Gist markdown compatibility** - removed HTML img tags that don't work in gists
+- **Badge layout** - All Contributors badge now displays inline with other badges
+- **Documentation accuracy** - clarified which variables are required for full functionality
 
 ## [1.0.0] - 2024-01-15
 
@@ -24,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - Initial release of Make Gist List
 - Core functionality to fetch and list public GitHub gists
 - Markdown table generation with gist metadata
-- Optional gist updating capability
+- Gist updating capability
 - GitHub Actions workflow for automated updates
 - Cross-platform compatibility
 

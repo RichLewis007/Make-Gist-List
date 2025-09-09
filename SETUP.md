@@ -212,11 +212,11 @@ python make-gist-list.py
    # Required for local runs
    GITHUB_USERNAME=your-github-username
    
-   # Optional - for updating a gist
+   # Required - for updating a gist
    LIST_GIST_ID=your-gist-id-here
    GIST_TOKEN=your-github-token-here
    
-   # Optional - filename in the gist
+   # Optional - customized filename in the gist
    TARGET_MD_FILENAME=Public-Gists.md
    ```
 
