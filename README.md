@@ -1,6 +1,6 @@
 # Make Gist List <img src="assets/icons/file-text.svg" alt="Documentation" width="20" height="20" style="vertical-align: middle;">
 
-<img src="assets/Make-Gist-List-README-heading.png" alt="Make-Gist-List-README-heading" width="1024" height="512" style="vertical-align: middle;">
+<img src="assets/Make-Gist-List-readme-header.png" alt="Make-Gist-List-README-heading" width="1024" height="512" style="vertical-align: middle;">
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
