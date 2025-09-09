@@ -126,9 +126,9 @@ The script is designed to be easily customizable:
 > **Are you interested in how this open source program was crafted?**
 > 
 > Do you want to learn how the open source developers made this program efficient, how the code was organized and errors
-> were logged and handled? Check out the accompanied educational guide which goes into technical depth, discussing the 
+> were logged and handled? Check out the included educational guide which goes into technical depth, discussing the 
 > API optimization strategies used to pull data from potentially many gists from the back-end GitHub systems, the performance
-> considerations and demonstrations of best practices in Python coding.\
+> considerations and demonstrations of best practices in Python coding.
 > 
 > **Read [Optimization Techniques & Programming Concepts](docs/OPTIMIZATION-TECHNIQUES.md)**
 
