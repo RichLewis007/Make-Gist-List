@@ -20,15 +20,15 @@ Usage:
     python make-gist-list.py
 
 Environment Variables:
-    GITHUB_USERNAME (required) - GitHub username to fetch public gists from
+    GITHUB_USERNAME (required) - GitHub username from which to fetch public gists
     LIST_GIST_ID    (optional) - Target gist ID to update with the generated list
-    GIST_TOKEN      (optional) - GitHub token with 'gist' scope for updating gists
+    GIST_TOKEN      (optional) - GitHub Personal Access Token (classic type) with "gist" scope (required if updating a gist)
     TARGET_MD_FILENAME (optional) - Filename for the markdown file in the target gist
 
 Output:
     - Always prints the generated markdown to stdout
-    - If LIST_GIST_ID and GIST_TOKEN are provided, updates the target gist
-    - Creates a clean, professional table with gist information
+    - If LIST_GIST_ID and GIST_TOKEN are provided, the workflow updates the target gist
+    - Creates a clean sortable table with all public gist information
 
 For detailed setup instructions, see README.md and SETUP.md files.
 

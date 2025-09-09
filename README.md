@@ -36,21 +36,26 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 ### Option 2: Run Locally
 
 ```bash
-# Clone and setup
+# 1. Clone the repository
 git clone https://github.com/your-username/Make-Gist-List.git
 cd Make-Gist-List
 
-# Install dependencies
+# 2. Create environment file from example
+cp env.example .env
+
+# 3. Edit .env file with your values
+# GITHUB_USERNAME=your-username  # Required for local runs
+# LIST_GIST_ID=your-gist-id      # Optional
+# GIST_TOKEN=your-github-token   # Optional
+
+# 4. Install dependencies
 pip install .
 
-# Set environment variables
-export GITHUB_USERNAME="your-username"  # Required for local runs
-export LIST_GIST_ID="your-gist-id"  # Optional
-export GIST_TOKEN="your-github-token"  # Optional
-
-# Run the script
+# 5. Run the script
 python make-gist-list.py
 ```
+
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
 
 ## <img src="assets/icons/clipboard-text.svg" alt="Output" width="20" height="20" style="vertical-align: middle;"> What You Get
 

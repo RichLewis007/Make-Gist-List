@@ -21,8 +21,8 @@
 # For example, if you need to run a similar script on Windows, you will need to use PowerShell.
 
 export GITHUB_USERNAME="your-username-here"  # Required for local runs
-export LIST_GIST_ID="your-gist-id-here"
-export GIST_TOKEN="your-github-token-here"
+export LIST_GIST_ID="your-gist-id-here"      # Optional - for updating a gist
+export GIST_TOKEN="your-github-token-here"   # Optional - for updating a gist
 
 # Run the script
 python make-gist-list.py
