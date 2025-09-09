@@ -218,7 +218,7 @@ uv run python make-gist-list.py
    LIST_GIST_ID=your-gist-id-here
    GIST_TOKEN=your-github-token-here
    
-   # Optional - customized filename in the gist
+   # Optional - customize filename in the gist
    TARGET_MD_FILENAME=Public-Gists.md
    ```
 
