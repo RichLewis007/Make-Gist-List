@@ -12,6 +12,8 @@ Features:
 - Fetches all public gists from a GitHub username
 - Generates a clean, sortable markdown table
 - Includes gist metadata (title, files, language, date, links)
+- Shows engagement metrics (comments, forks, stars)
+- Uses efficient batched GraphQL API for star counts
 - Uses custom icons for public/private status
 - Updates a target gist on GitHub automatically
 - Designed to be easily forkable and customizable
@@ -46,6 +48,8 @@ Output fields in the generated markdown table:
 
 from __future__ import annotations
 
+import base64
+import logging
 import os
 import sys
 import time
@@ -60,6 +64,43 @@ from requests import Response, Session
 API = "https://api.github.com"
 TIMEOUT = 30
 RETRIES = 3
+
+# Configure logging
+def setup_logging(verbose: bool = False) -> logging.Logger:
+    """
+    Set up logging configuration for the application.
+    
+    Args:
+        verbose: If True, enables DEBUG level logging
+        
+    Returns:
+        Configured logger instance
+    """
+    level = logging.DEBUG if verbose else logging.INFO
+    
+    # Create formatter
+    formatter = logging.Formatter(
+        fmt='%(asctime)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    # Create handler for stderr
+    handler = logging.StreamHandler(sys.stderr)
+    handler.setFormatter(formatter)
+    
+    # Create logger
+    logger = logging.getLogger(__name__)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    
+    # Prevent duplicate handlers if called multiple times
+    if len(logger.handlers) == 1:
+        logger.propagate = False
+    
+    return logger
+
+# Initialize logger (will be reconfigured in main() if verbose mode is enabled)
+logger = setup_logging()
 RETRY_BACKOFF = 2.0
 USER_AGENT = "make-gist-list-script/1.0 (+https://github.com/)"
 
@@ -73,7 +114,7 @@ class Cfg:
 def getenv_required(name: str) -> str:
     v = os.getenv(name)
     if not v:
-        print(f"Missing required env: {name}", file=sys.stderr)
+        logger.error(f"Missing required env: {name}")
         sys.exit(1)
     return v
 
@@ -105,7 +146,7 @@ def _req_with_retry(s: Session, method: str, url: str, **kw: Any) -> Response:
                 reset = r.headers.get("X-RateLimit-Reset")
                 if reset and reset.isdigit():
                     wait = max(0, int(reset) - int(time.time())) + 1
-                    print(f"Rate limited. Sleeping {wait}s…", file=sys.stderr)
+                    logger.warning(f"Rate limited. Sleeping {wait}s…")
                     time.sleep(wait)
                     continue
             if 500 <= r.status_code < 600:
@@ -116,7 +157,7 @@ def _req_with_retry(s: Session, method: str, url: str, **kw: Any) -> Response:
             if attempt == RETRIES:
                 break
             backoff = RETRY_BACKOFF ** (attempt - 1)
-            print(f"Transient error ({e}); retry {attempt}/{RETRIES-1} in {backoff:.1f}s…", file=sys.stderr)
+            logger.warning(f"Transient error ({e}); retry {attempt}/{RETRIES-1} in {backoff:.1f}s…")
             time.sleep(backoff)
     assert last is not None
     raise last
@@ -128,7 +169,7 @@ def list_public_gists(s: Session, username: str) -> List[Dict[str, Any]]:
         r = _req_with_retry(s, "GET", f"{API}/users/{username}/gists",
                             params={"per_page": 100, "page": page})
         if r.status_code == 404:
-            print(f"User '{username}' not found or gists unavailable.", file=sys.stderr)
+            logger.error(f"User '{username}' not found or gists unavailable.")
             sys.exit(2)
         r.raise_for_status()
         chunk = r.json()
@@ -141,7 +182,7 @@ def list_public_gists(s: Session, username: str) -> List[Dict[str, Any]]:
     public_only = [g for g in gists if bool(g.get("public", False))]
     if len(public_only) != len(gists):
         skipped = len(gists) - len(public_only)
-        print(f"[info] Skipped {skipped} non-public gist(s).", file=sys.stderr)
+        logger.info(f"Skipped {skipped} non-public gist(s).")
     return public_only
 
 def primary_language(files: Dict[str, Dict[str, Any]]) -> str:
@@ -153,7 +194,99 @@ def primary_language(files: Dict[str, Dict[str, Any]]) -> str:
             best = (lang, size)
     return best[0] if best else ""
 
+def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[str, int | str]:
+    """
+    Get star counts for multiple gists using a single GraphQL API call.
+    
+    This is much more efficient than making individual API calls for each gist.
+    GitHub's GraphQL API allows us to query multiple gists in a single request.
+    
+    Args:
+        session: Authenticated requests session
+        gist_ids: List of gist IDs to get star counts for
+        
+    Returns:
+        Dictionary mapping gist_id -> star_count (int) or "N/A" (str) if unavailable
+    """
+    if not gist_ids:
+        return {}
+    
+    # Build GraphQL query for multiple gists
+    # We create aliases (gist0, gist1, etc.) to query multiple gists at once
+    query_parts = []
+    variables = {}
+    
+    for i, gist_id in enumerate(gist_ids):
+        alias = f"gist{i}"
+        # Convert gist ID to GraphQL node ID format (base64 encoded)
+        graphql_id = base64.b64encode(f"gist:{gist_id}".encode()).decode()
+        
+        query_parts.append(f"""
+        {alias}: node(id: ${alias}Id) {{
+            ... on Gist {{
+                stargazerCount
+            }}
+        }}
+        """)
+        variables[f"{alias}Id"] = graphql_id
+    
+    # Combine all query parts
+    query = f"""
+    query({', '.join([f'${alias}Id: ID!' for alias in [f'gist{i}' for i in range(len(gist_ids))]])}) {{
+        {''.join(query_parts)}
+    }}
+    """
+    
+    payload = {
+        "query": query,
+        "variables": variables
+    }
+    
+    try:
+        logger.debug(f"Making GraphQL request for {len(gist_ids)} gists")
+        response = session.post("https://api.github.com/graphql", json=payload)
+        if response.status_code == 200:
+            data = response.json()
+            if "data" in data and data["data"]:
+                # Extract star counts from the response
+                star_counts = {}
+                for i, gist_id in enumerate(gist_ids):
+                    alias = f"gist{i}"
+                    if alias in data["data"] and data["data"][alias]:
+                        star_counts[gist_id] = data["data"][alias]["stargazerCount"]
+                    else:
+                        star_counts[gist_id] = 0
+                logger.debug(f"Successfully retrieved star counts for {len(star_counts)} gists")
+                return star_counts
+            else:
+                logger.warning("GraphQL response missing data field")
+        else:
+            logger.warning(f"GraphQL request failed with status {response.status_code}")
+    except Exception as e:
+        logger.warning(f"Failed to get star counts via GraphQL: {e}")
+    
+    # Fallback: return "N/A" for all gists if GraphQL fails
+    return {gist_id: "N/A" for gist_id in gist_ids}
+
 def build_markdown(gists: list[dict], username: str, session: Session) -> str:
+    """
+    Build markdown table with gist information including engagement metrics.
+    
+    This function fetches additional data (comments, forks, stars) for each gist
+    and generates a comprehensive markdown table.
+    
+    Data Sources:
+    - REST API: Basic gist info, comments, forks
+    - GraphQL API: Star counts (batched for efficiency)
+    
+    Args:
+        gists: List of gist dictionaries from GitHub API
+        username: GitHub username for display
+        session: Authenticated requests session
+        
+    Returns:
+        Formatted markdown string
+    """
     # UTC time for display
     now_utc = datetime.now(ZoneInfo("UTC"))
     timestamp = now_utc.strftime("%Y-%m-%d %H:%M UTC")
@@ -170,11 +303,21 @@ def build_markdown(gists: list[dict], username: str, session: Session) -> str:
     lines += [
         f"**Total public gists:** {count}",
         "",
-        "| Title | Files | Lang | Public | Updated | Link | Comments | Forks",
-        "|---|---:|---|:---:|---|---|---|---|",
+        "| Title | Files | Lang | Public | Updated | Link | Comments | Forks | Stars",
+        "|---|---:|---|:---:|---|---|---|---|---|",
     ]
 
+    # Sort gists by update date (newest first)
     gists_sorted = sorted(gists, key=lambda x: x.get("updated_at") or "", reverse=True)
+    
+    # Collect all gist IDs for batched star count query
+    gist_ids = [g.get("id", "") for g in gists_sorted if g.get("id")]
+    
+    # Get star counts for all gists in a single GraphQL request
+    logger.info(f"Fetching star counts for {len(gist_ids)} gists via GraphQL...")
+    star_counts = get_gist_star_counts_batch(session, gist_ids)
+    
+    # Process each gist and build table rows
     for g in gists_sorted:
         desc = (g.get("description") or "").strip() or "(no description)"
         title = desc.splitlines()[0][:120]
@@ -190,7 +333,8 @@ def build_markdown(gists: list[dict], username: str, session: Session) -> str:
         url = g.get("html_url") or ""
         gist_id = g.get("id", "")
 
-        # fetching stars and forks for each gist, because the api doesn't provide them
+        # Fetch comments and forks for each gist (REST API)
+        # Note: These are still individual calls as they're not available in the main gist response
         try:
             comments_response = session.get(f"{API}/gists/{gist_id}/comments")
             comments = len(comments_response.json()) if comments_response.status_code == 200 else 0
@@ -201,9 +345,12 @@ def build_markdown(gists: list[dict], username: str, session: Session) -> str:
             forks = len(forks_response.json()) if forks_response.status_code == 200 else 0
         except Exception:
             forks = "N/A"
+        
+        # Get star count from batched GraphQL query (much more efficient)
+        stars = star_counts.get(gist_id, "N/A")
 
         public_flag = '✓' if g.get("public") else '✗'
-        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {comments} | {forks} |")
+        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
 
     lines += [
         "",
@@ -212,21 +359,74 @@ def build_markdown(gists: list[dict], username: str, session: Session) -> str:
     return "\n".join(lines)
 
 def update_index_gist(s: Session, gist_id: str, target_md: str, content_md: str, username: str) -> str:
+    """
+    Update a target gist with the generated markdown content.
+    
+    This function updates an existing gist with the markdown table of public gists.
+    The gist is identified by its ID and the content is placed in a specific file.
+    
+    Args:
+        s: Authenticated requests session
+        gist_id: ID of the gist to update
+        target_md: Filename for the markdown content in the gist
+        content_md: The markdown content to write
+        username: GitHub username for the gist description
+        
+    Returns:
+        URL of the updated gist
+        
+    Raises:
+        SystemExit: If gist not found or token lacks access
+    """
     payload = {
         "description": f"Public gists from {username}",
         "files": { target_md: {"content": content_md} },
     }
     r = _req_with_retry(s, "PATCH", f"{API}/gists/{gist_id}", json=payload)
     if r.status_code == 404:
-        print("LIST_GIST_ID not found or token lacks access to that gist.", file=sys.stderr)
+        logger.error("LIST_GIST_ID not found or token lacks access to that gist.")
         sys.exit(4)
     r.raise_for_status()
     return r.json().get("html_url", "(unknown)")
 
 def main() -> int:
+    """
+    Main function that orchestrates the gist list generation process.
+    
+    This function:
+    1. Loads configuration from environment variables
+    2. Creates an authenticated session
+    3. Fetches all public gists for the specified user
+    4. Generates a markdown table with engagement metrics
+    5. Optionally updates a target gist with the generated content
+    
+    API Usage:
+    - 1 REST API call to list all public gists
+    - 1 GraphQL API call to get star counts for all gists (batched)
+    - 2 REST API calls per gist for comments and forks
+    - 1 REST API call to update target gist (if configured)
+    
+    Total API calls: 1 + 1 + (2 × number_of_gists) + 1 (if updating gist)
+    
+    Returns:
+        0 on success, 5 on gist update error
+    """
+    # Check for verbose logging
+    verbose = os.getenv("VERBOSE", "").lower() in ("1", "true", "yes")
+    if verbose:
+        # Reconfigure logger for verbose mode
+        logger.setLevel(logging.DEBUG)
+        for handler in logger.handlers:
+            handler.setLevel(logging.DEBUG)
+        logger.debug("Verbose logging enabled")
+    
     cfg = load_cfg()
+    logger.debug(f"Configuration loaded: username={cfg.username}, has_token={bool(cfg.token)}, has_gist_id={bool(cfg.list_gist_id)}")
+    
     s = make_session(cfg.token)
     gists = list_public_gists(s, cfg.username)
+    logger.debug(f"Found {len(gists)} public gists")
+    
     md = build_markdown(gists, cfg.username, s)
 
     # Always print Markdown to stdout
@@ -236,10 +436,10 @@ def main() -> int:
     if cfg.list_gist_id and cfg.token:
         try:
             url = update_index_gist(s, cfg.list_gist_id, cfg.target_md, md, cfg.username)
-            print(f"\n[info] Updated gist: {url}", file=sys.stderr)
+            logger.info(f"Updated gist: {url}")
         except requests.HTTPError as e:
             status = getattr(e, "response", None).status_code if getattr(e, "response", None) else "HTTP"
-            print(f"[warn] Gist update failed ({status}): {e}", file=sys.stderr)
+            logger.warning(f"Gist update failed ({status}): {e}")
             return 5
     return 0
 
@@ -247,5 +447,5 @@ if __name__ == "__main__":
     try:
         sys.exit(main())
     except Exception as e:
-        print(f"Unhandled error: {e!r}", file=sys.stderr)
+        logger.error(f"Unhandled error: {e!r}")
         sys.exit(6)

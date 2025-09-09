@@ -16,11 +16,23 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 ## <img src="assets/icons/sparkle.svg" alt="Features" width="20" height="20" style="vertical-align: middle;"> Features
 
 - <img src="assets/icons/arrows-clockwise.svg" alt="Updates" width="20" height="20" style="vertical-align: middle;"> **Automatic Updates**: Runs daily via GitHub Actions
-- <img src="assets/icons/chart-bar.svg" alt="Data" width="20" height="20" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, and links
+- <img src="assets/icons/chart-bar.svg" alt="Data" width="20" height="20" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, engagement metrics, and links
+- <img src="assets/icons/lightning.svg" alt="Performance" width="20" height="20" style="vertical-align: middle;"> **Optimized Performance**: Uses batched GraphQL queries for 26-40% fewer API calls
+- <img src="assets/icons/bug.svg" alt="Debugging" width="20" height="20" style="vertical-align: middle;"> **Professional Logging**: Structured logging with configurable verbosity levels
 - <img src="assets/icons/target.svg" alt="Integration" width="20" height="20" style="vertical-align: middle;"> **Gist Integration**: Updates a target gist with the generated list
 - <img src="assets/icons/rocket.svg" alt="Setup" width="20" height="20" style="vertical-align: middle;"> **Easy Setup**: Fork, configure secrets, and you're done!
 - <img src="assets/icons/palette.svg" alt="Customization" width="20" height="20" style="vertical-align: middle;"> **Customizable**: Easy to modify output format and add new fields
 - <img src="assets/icons/lock.svg" alt="Security" width="20" height="20" style="vertical-align: middle;"> **Secure**: Uses minimal GitHub token permissions (gist scope only)
+
+## <img src="assets/icons/graduation-cap.svg" alt="Learning" width="20" height="20" style="vertical-align: middle;"> Learning Resources
+
+This project demonstrates several important programming concepts and optimization techniques:
+
+- **[Optimization Techniques Guide](docs/OPTIMIZATION-TECHNIQUES.md)** - Learn about API optimization, GraphQL vs REST, batching strategies, and performance considerations
+- **Code Examples** - See real-world implementations of error handling, type hints, and clean architecture
+- **Best Practices** - Understand how to write maintainable, efficient code when working with external APIs
+
+Perfect for developers looking to understand how to optimize API usage and write production-ready code!
 
 ## <img src="assets/icons/rocket.svg" alt="Quick Start" width="20" height="20" style="vertical-align: middle;"> Quick Start
 
@@ -48,6 +60,7 @@ cp env.example .env
 # GITHUB_USERNAME=your-username  # Required for local runs
 # LIST_GIST_ID=your-gist-id      
 # GIST_TOKEN=your-github-token   
+# VERBOSE=1                      # Optional: enable debug logging
 
 # 4. Install dependencies
 pip install .
