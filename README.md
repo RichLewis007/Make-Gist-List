@@ -15,14 +15,14 @@ A simple, lightweight Python script that fetches your public GitHub gists and cr
 
 ## <img src="assets/icons/sparkle.svg" alt="Features" width="25" height="25" style="vertical-align: middle;"> Features
 
-- <img src="assets/icons/arrows-clockwise.svg" alt="Updates" width="25" height="25" style="vertical-align: middle;"> **Automatic Updates**: Runs daily via GitHub Actions
-- <img src="assets/icons/chart-bar.svg" alt="Data" width="25" height="25" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, engagement metrics, and links
-- <img src="assets/icons/lightning.svg" alt="Performance" width="25" height="25" style="vertical-align: middle;"> **Optimized Performance**: Uses batched GraphQL queries for 26-40% fewer API calls
-- <img src="assets/icons/bug.svg" alt="Debugging" width="25" height="25" style="vertical-align: middle;"> **Professional Logging**: Structured logging with configurable verbosity levels
-- <img src="assets/icons/target.svg" alt="Integration" width="25" height="25" style="vertical-align: middle;"> **Gist Integration**: Updates a target gist with the generated list
-- <img src="assets/icons/rocket.svg" alt="Setup" width="25" height="25" style="vertical-align: middle;"> **Easy Setup**: Fork, configure secrets, and you're done!
-- <img src="assets/icons/palette.svg" alt="Customization" width="25" height="25" style="vertical-align: middle;"> **Customizable**: Easy to modify output format and add new fields
-- <img src="assets/icons/lock.svg" alt="Security" width="25" height="25" style="vertical-align: middle;"> **Secure**: Uses minimal GitHub token permissions (gist scope only)
+- <img src="assets/icons/arrows-clockwise.svg" alt="Updates" width="21" height="21" style="vertical-align: middle;"> **Automatic Updates**: Runs daily via GitHub Actions
+- <img src="assets/icons/chart-bar.svg" alt="Data" width="21" height="21" style="vertical-align: middle;"> **Rich Information**: Title, file count, language, public status, update date, engagement metrics, and links
+- <img src="assets/icons/lightning.svg" alt="Performance" width="21" height="21" style="vertical-align: middle;"> **Optimized Performance**: Uses batched GraphQL queries for 26-40% fewer API calls
+- <img src="assets/icons/bug.svg" alt="Debugging" width="21" height="21" style="vertical-align: middle;"> **Professional Logging**: Structured logging with configurable verbosity levels
+- <img src="assets/icons/target.svg" alt="Integration" width="21" height="21" style="vertical-align: middle;"> **Gist Integration**: Updates a target gist with the generated list
+- <img src="assets/icons/rocket.svg" alt="Setup" width="21" height="21" style="vertical-align: middle;"> **Easy Setup**: Fork, configure secrets, and you're done!
+- <img src="assets/icons/palette.svg" alt="Customization" width="21" height="21" style="vertical-align: middle;"> **Customizable**: Easy to modify output format and add new fields
+- <img src="assets/icons/lock.svg" alt="Security" width="21" height="21" style="vertical-align: middle;"> **Secure**: Uses minimal GitHub token permissions (gist scope only)
 
 ## <img src="assets/icons/graduation-cap.svg" alt="Learning" width="25" height="25" style="vertical-align: middle;"> Learning Resources
 
