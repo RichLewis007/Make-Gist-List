@@ -78,12 +78,12 @@ Make-Gist-List/
 
 ## Benefits
 
-- ✅ **Fully Automatic**: No manual intervention needed
-- ✅ **Self-contained**: Everything in one repository
-- ✅ **Simple Setup**: Just enable repository permissions
-- ✅ **Real-time**: Triggers immediately when bot creates PR
-- ✅ **Clean**: No temporary files or external dependencies
-- ✅ **Transparent**: Clear logging and status comments
+- <img src="../assets/icons/check.svg" alt="Fully Automatic" width="16" height="16" style="vertical-align: middle;"> **Fully Automatic**: No manual intervention needed
+- <img src="../assets/icons/check.svg" alt="Self-contained" width="16" height="16" style="vertical-align: middle;"> **Self-contained**: Everything in one repository
+- <img src="../assets/icons/check.svg" alt="Simple Setup" width="16" height="16" style="vertical-align: middle;"> **Simple Setup**: Just enable repository permissions
+- <img src="../assets/icons/check.svg" alt="Real-time" width="16" height="16" style="vertical-align: middle;"> **Real-time**: Triggers immediately when bot creates PR
+- <img src="../assets/icons/check.svg" alt="Clean" width="16" height="16" style="vertical-align: middle;"> **Clean**: No temporary files or external dependencies
+- <img src="../assets/icons/check.svg" alt="Transparent" width="16" height="16" style="vertical-align: middle;"> **Transparent**: Clear logging and status comments
 
 ## Troubleshooting
 
