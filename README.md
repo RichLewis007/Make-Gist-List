@@ -123,6 +123,13 @@ The script is designed to be easily customizable:
 - **[Environment Example](env.example)** - Example environment variable configuration
 - **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to this project
 
+> **Interested in how this program was coded? 
+> Do you want to learn how the open source developers made this program efficient, how the code was organized and errors
+> were logged and handled? Check out the accompanied educational guide which goes into technical depth, discussing the 
+> API optimization strategies used to pull data from potentially many gists from the back-end GitHub systems, the performance
+> considerations and demonstrations of best practices in Python coding.
+> Read [Optimization Techniques & Programming Concepts](docs/OPTIMIZATION-TECHNIQUES.md)
+
 ## <img src="assets/icons/wrench.svg" alt="Requirements" width="20" height="20" style="vertical-align: middle;"> Requirements
 
 - **Python**: 3.10 or higher
@@ -136,8 +143,6 @@ Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) 
 
 ### Quick Contribution Ideas
 
-- Add new fields to the gist table (stars, forks, etc.)
-- Improve error handling and logging
 - Add support for filtering gists by language or date
 - Create alternative output formats (JSON, CSV, etc.)
 - Add support for private gists (with proper authentication)
