@@ -218,8 +218,8 @@ uv run python make-gist-list.py
    LIST_GIST_ID=your-gist-id-here
    GIST_TOKEN=your-github-token-here
    
-   # Optional - customize filename in the gist
-   TARGET_MD_FILENAME=Public-Gists.md
+   # Optional - customize the filename used for the markdown doc in the gist
+   TARGET_MD_FILENAME=Public-gists.md
    
    # Optional - timezone for timestamp display
    TIMEZONE=America/New_York

@@ -135,7 +135,7 @@ def load_cfg() -> Cfg:
         username=getenv_required("GITHUB_USERNAME"),
         list_gist_id=os.getenv("LIST_GIST_ID"),
         token=token,
-        target_md=os.getenv("TARGET_MD_FILENAME", "Public-Gists.md"),
+        target_md=os.getenv("TARGET_MD_FILENAME", "Public-gists.md"),
         timezone=os.getenv("TIMEZONE", "UTC"),
         date_format=os.getenv("DATE_FORMAT", "YYYY-MM-DD"),
         time_format=os.getenv("TIME_FORMAT", "24"),

@@ -24,7 +24,7 @@
 export GITHUB_USERNAME="your-username-here"  # Required for local runs
 export LIST_GIST_ID="your-gist-id-here"      # Required for updating a gist
 export GIST_TOKEN="your-github-token-here"   # Required for updating a gist
-export TARGET_MD_FILENAME=Public-Gists.md    # Optional - customize filename in the gist
+export TARGET_MD_FILENAME=Public-gists.md    # Optional - customize filename in the gist
 
 # Run the script
 uv run python make-gist-list.py

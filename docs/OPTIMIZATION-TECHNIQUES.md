@@ -325,7 +325,7 @@ def load_cfg() -> Config:
         username=getenv_required("GITHUB_USERNAME"),
         token=os.getenv("GIST_TOKEN"),
         list_gist_id=os.getenv("LIST_GIST_ID"),
-        target_md=os.getenv("TARGET_MD_FILENAME", "Public-Gists.md"),
+        target_md=os.getenv("TARGET_MD_FILENAME", "Public-gists.md"),
     )
 ```
 
