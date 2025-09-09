@@ -2,14 +2,13 @@
 
 <img src="assets/Make-Gist-List-readme-header.png" alt="Make-Gist-List-README-heading" width="1024" height="512" style="vertical-align: middle;">
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 [![Update Gist List](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml/badge.svg)](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 > **Automatically generate and maintain a markdown list of all your public GitHub gists**
 
