@@ -2,21 +2,40 @@
 # file: make-gist-list.py
 
 """
-Automatically generates a markdown table of ALL of your public GISTS 
-and updates a gist with that list. Super handy! 
+Make Gist List - GitHub Gist Markdown List Generator
 
-**Please see the README.md and SETUP.md files for more information on how to use this script.**
+This script automatically generates a sortable markdown table of all your public GitHub gists
+and optionally updates a target gist with the generated list. Perfect for creating a portfolio
+or showcase of your code snippets and projects.
 
-Behavior:
-- Always prints the Markdown to stdout.
-- If LIST_GIST_ID and GIST_TOKEN are set, also PATCHes that gist file.
+Features:
+- Fetches all public gists from a GitHub username
+- Generates a clean, sortable markdown table
+- Includes gist metadata (title, files, language, date, links)
+- Uses custom icons for public/private status
+- Optionally updates a target gist automatically
+- Designed to be easily forkable and customizable
 
-Env variables:
-  GITHUB_USERNAME (required) GitHub username to list PUBLIC gists from
-  LIST_GIST_ID    (optional) The gist ID to overwrite (the list gist)
-  GIST_TOKEN      (optional) Has "gist" scope, required for updating the gist.
+Usage:
+    python make-gist-list.py
 
-Output fields:
+Environment Variables:
+    GITHUB_USERNAME (required) - GitHub username to fetch public gists from
+    LIST_GIST_ID    (optional) - Target gist ID to update with the generated list
+    GIST_TOKEN      (optional) - GitHub token with 'gist' scope for updating gists
+    TARGET_MD_FILENAME (optional) - Filename for the markdown file in the target gist
+
+Output:
+    - Always prints the generated markdown to stdout
+    - If LIST_GIST_ID and GIST_TOKEN are provided, updates the target gist
+    - Creates a clean, professional table with gist information
+
+For detailed setup instructions, see README.md and SETUP.md files.
+
+Author: Rich Lewis
+Repository: https://github.com/RichLewis007/Make-Gist-List
+
+Output fields in the generated markdown table:
   Title (first line of gist description, truncated)
   Files (count)
   Lang (primary language by largest file)
