@@ -63,13 +63,13 @@ cp env.example .env
 # VERBOSE=1                      # Optional: enable debug logging
 
 # 4. Install dependencies
-pip install .
+uv sync
 
 # 5. Run the script
-python make-gist-list.py
+uv run python make-gist-list.py
 ```
 
-> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: The script automatically loads your `.env` file. For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
 
 ## <img src="assets/icons/clipboard-text.svg" alt="Output" width="20" height="20" style="vertical-align: middle;"> What You Get
 

@@ -61,6 +61,14 @@ from typing import Any, Dict, List, Optional, Tuple
 import requests
 from requests import Response, Session
 
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # python-dotenv not available, continue without it
+    pass
+
 API = "https://api.github.com"
 TIMEOUT = 30
 RETRIES = 3
@@ -119,10 +127,11 @@ def getenv_required(name: str) -> str:
     return v
 
 def load_cfg() -> Cfg:
+    token = os.getenv("GIST_TOKEN")
     return Cfg(
         username=getenv_required("GITHUB_USERNAME"),
         list_gist_id=os.getenv("LIST_GIST_ID"),
-        token=os.getenv("GIST_TOKEN"),
+        token=token,
         target_md=os.getenv("TARGET_MD_FILENAME", "Public-Gists.md"),
     )
 
@@ -134,7 +143,7 @@ def make_session(token: Optional[str]) -> Session:
         "User-Agent": USER_AGENT,
     })
     if token:
-        s.headers["Authorization"] = f"Bearer {token}"
+        s.headers["Authorization"] = f"token {token}"
     return s
 
 def _req_with_retry(s: Session, method: str, url: str, **kw: Any) -> Response:
@@ -198,8 +207,9 @@ def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[st
     """
     Get star counts for multiple gists using a single GraphQL API call.
     
-    This is much more efficient than making individual API calls for each gist.
-    GitHub's GraphQL API allows us to query multiple gists in a single request.
+    This uses the viewer.gists query to get all gists with star counts,
+    then matches them with the provided gist IDs by cross-referencing
+    with the REST API data.
     
     Args:
         session: Authenticated requests session
@@ -211,51 +221,49 @@ def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[st
     if not gist_ids:
         return {}
     
-    # Build GraphQL query for multiple gists
-    # We create aliases (gist0, gist1, etc.) to query multiple gists at once
-    query_parts = []
-    variables = {}
-    
-    for i, gist_id in enumerate(gist_ids):
-        alias = f"gist{i}"
-        # Convert gist ID to GraphQL node ID format (base64 encoded)
-        graphql_id = base64.b64encode(f"gist:{gist_id}".encode()).decode()
-        
-        query_parts.append(f"""
-        {alias}: node(id: ${alias}Id) {{
-            ... on Gist {{
-                stargazerCount
-            }}
-        }}
-        """)
-        variables[f"{alias}Id"] = graphql_id
-    
-    # Combine all query parts
-    query = f"""
-    query({', '.join([f'${alias}Id: ID!' for alias in [f'gist{i}' for i in range(len(gist_ids))]])}) {{
-        {''.join(query_parts)}
-    }}
+    # Use viewer.gists query to get all gists with star counts
+    query = """
+    query {
+        viewer {
+            gists(first: 100) {
+                nodes {
+                    id
+                    stargazerCount
+                    url
+                }
+            }
+        }
+    }
     """
     
-    payload = {
-        "query": query,
-        "variables": variables
-    }
+    payload = {"query": query}
     
     try:
-        logger.debug(f"Making GraphQL request for {len(gist_ids)} gists")
+        logger.debug(f"Making GraphQL request to get all gists with star counts")
         response = session.post("https://api.github.com/graphql", json=payload)
         if response.status_code == 200:
             data = response.json()
-            if "data" in data and data["data"]:
-                # Extract star counts from the response
+            if "data" in data and data["data"] and data["data"]["viewer"]:
+                gists_data = data["data"]["viewer"]["gists"]["nodes"]
+                
+                # Create mapping from gist URL to star count
+                # We'll match by URL since it contains the gist ID
+                url_to_stars = {}
+                for gist in gists_data:
+                    url = gist.get("url", "")
+                    if url:
+                        # Extract gist ID from URL: https://gist.github.com/username/gist_id
+                        gist_id_from_url = url.split("/")[-1]
+                        url_to_stars[gist_id_from_url] = gist.get("stargazerCount", 0)
+                
+                # Map our gist_ids to star counts
                 star_counts = {}
-                for i, gist_id in enumerate(gist_ids):
-                    alias = f"gist{i}"
-                    if alias in data["data"] and data["data"][alias]:
-                        star_counts[gist_id] = data["data"][alias]["stargazerCount"]
+                for gist_id in gist_ids:
+                    if gist_id in url_to_stars:
+                        star_counts[gist_id] = url_to_stars[gist_id]
                     else:
-                        star_counts[gist_id] = 0
+                        star_counts[gist_id] = "N/A"
+                
                 logger.debug(f"Successfully retrieved star counts for {len(star_counts)} gists")
                 return star_counts
             else:

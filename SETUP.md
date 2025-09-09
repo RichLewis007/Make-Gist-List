@@ -180,6 +180,8 @@ Modify the `list_public_gists()` function to:
 
 If you prefer to run the script locally on your machine instead of using GitHub Actions, follow these steps:
 
+> <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Automatic .env Loading**: The script automatically loads your `.env` file using `python-dotenv`, so you don't need to manually source environment variables.
+
 ### <img src="assets/icons/rocket.svg" alt="Quick Setup" width="20" height="20" style="vertical-align: middle;"> Quick Setup
 
 ```bash
@@ -194,10 +196,10 @@ cp env.example .env
 # (See detailed instructions below)
 
 # 4. Install dependencies
-pip install .
+uv sync
 
 # 5. Run the script
-python make-gist-list.py
+uv run python make-gist-list.py
 ```
 
 ### <img src="assets/icons/wrench.svg" alt="Environment Configuration" width="20" height="20" style="vertical-align: middle;"> Environment Configuration

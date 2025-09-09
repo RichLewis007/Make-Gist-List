@@ -304,6 +304,14 @@ def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[st
 ### 3. Configuration Management
 
 ```python
+# Automatic .env file loading
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # python-dotenv not available, continue without it
+    pass
+
 @dataclass
 class Config:
     username: str
@@ -312,8 +320,20 @@ class Config:
     target_md: str
 
 def load_cfg() -> Config:
-    # Centralized configuration loading
+    # Centralized configuration loading with automatic .env support
+    return Config(
+        username=getenv_required("GITHUB_USERNAME"),
+        token=os.getenv("GIST_TOKEN"),
+        list_gist_id=os.getenv("LIST_GIST_ID"),
+        target_md=os.getenv("TARGET_MD_FILENAME", "Public-Gists.md"),
+    )
 ```
+
+**Benefits:**
+- **Automatic .env loading** - No need to manually source environment variables
+- **Graceful fallback** - Works with or without python-dotenv
+- **Cross-platform compatibility** - Works with uv, pip, and other Python environments
+- **User-friendly** - Simplifies local development setup
 
 ### 4. Logging and Monitoring
 
