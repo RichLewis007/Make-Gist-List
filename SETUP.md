@@ -265,6 +265,55 @@ python make-gist-list.py
 - **Debug mode**: Add `print()` statements to see what's happening
 - **Customize output**: Modify the `build_markdown()` function for different formats
 
+### <img src="assets/icons/gear.svg" alt="Testing with Different Configurations" width="20" height="20" style="vertical-align: middle;"> Testing with Different Configurations
+
+When developing or testing different timezone/format combinations, you can use separate environment files:
+
+**Method 1: Using `--env-file` (Recommended)**
+```bash
+# Create a test configuration
+cat > test-european.env << EOF
+GITHUB_USERNAME=your-username
+LIST_GIST_ID=your-gist-id
+GIST_TOKEN=your-token
+TIMEZONE=Europe/London
+DATE_FORMAT=DD-MM-YYYY
+TIME_FORMAT=12
+EOF
+
+# Run with European settings
+uv run --env-file test-european.env python make-gist-list.py
+```
+
+**Method 2: Using `export` (Alternative)**
+```bash
+# Export variables in current shell session
+export GITHUB_USERNAME="your-username"
+export TIMEZONE="America/New_York"
+export DATE_FORMAT="MM-DD-YYYY"
+export TIME_FORMAT="12"
+
+# Run the script
+uv run python make-gist-list.py
+```
+
+**Method 3: Direct variable passing**
+```bash
+# Pass variables directly to uv run
+GITHUB_USERNAME="your-username" \
+TIMEZONE="Asia/Tokyo" \
+DATE_FORMAT="YYYY-MM-DD" \
+TIME_FORMAT="24" \
+uv run python make-gist-list.py
+```
+
+**Benefits of Method 1 (`--env-file`):**
+- ✅ **Clean separation** - Test configs don't affect main `.env`
+- ✅ **Reliable** - uv handles environment variable loading
+- ✅ **Portable** - Works consistently across systems
+- ✅ **Secure** - Add test files to `.gitignore`
+- ✅ **Flexible** - Easy to switch between configurations
+
 ### <img src="assets/icons/clock.svg" alt="Timezone Configuration" width="20" height="20" style="vertical-align: middle;"> Timezone Configuration
 
 The "Last updated" timestamp in your gist list can be displayed in your preferred timezone:
