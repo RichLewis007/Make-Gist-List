@@ -61,4 +61,4 @@ Add any other context, screenshots, or examples about the feature request here.
 
 ---
 
-**Thank you for suggesting this feature! <img src="assets/icons/lightbulb.svg" alt="Feature" width="20" height="20" style="vertical-align: middle;">**
+**Thank you for suggesting this feature! <img src="assets/icons/hand-waving.svg" alt="Feature" width="20" height="20" style="vertical-align: middle;">**

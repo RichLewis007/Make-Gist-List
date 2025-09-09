@@ -40,8 +40,8 @@ let readmeContent = fs.readFileSync(readmePath, 'utf8');
  * - Consistent 16x16 size with vertical alignment
  */
 const emojiToIconMap = {
-    '🔊': '<img src="assets/icons/megaphone.svg" alt="Audio" width="16" height="16" style="vertical-align: middle;">',
-    '♿️': '<img src="assets/icons/shield-check.svg" alt="Accessibility" width="16" height="16" style="vertical-align: middle;">',
+    '🔊': '<img src="assets/icons/headset.svg" alt="Audio" width="16" height="16" style="vertical-align: middle;">',
+    '♿️': '<img src="assets/icons/wheelchair.svg" alt="Accessibility" width="16" height="16" style="vertical-align: middle;">',
     '🐛': '<img src="assets/icons/bug.svg" alt="Bug" width="16" height="16" style="vertical-align: middle;">',
     '📝': '<img src="assets/icons/file-text.svg" alt="Blog" width="16" height="16" style="vertical-align: middle;">',
     '💼': '<img src="assets/icons/handshake.svg" alt="Business" width="16" height="16" style="vertical-align: middle;">',
@@ -51,13 +51,13 @@ const emojiToIconMap = {
     '📖': '<img src="assets/icons/books.svg" alt="Documentation" width="16" height="16" style="vertical-align: middle;">',
     '🎨': '<img src="assets/icons/palette.svg" alt="Design" width="16" height="16" style="vertical-align: middle;">',
     '💡': '<img src="assets/icons/lightbulb.svg" alt="Examples" width="16" height="16" style="vertical-align: middle;">',
-    '📋': '<img src="assets/icons/calendar.svg" alt="Event Organizing" width="16" height="16" style="vertical-align: middle;">',
+    '📋': '<img src="assets/icons/users-four.svg" alt="Event Organizing" width="16" height="16" style="vertical-align: middle;">',
     '💵': '<img src="assets/icons/currency-dollar.svg" alt="Financial" width="16" height="16" style="vertical-align: middle;">',
-    '🔍': '<img src="assets/icons/magnifying-glass.svg" alt="Funding/Research" width="16" height="16" style="vertical-align: middle;">',
-    '🤔': '<img src="assets/icons/lightbulb.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;">',
+    '🔍': '<img src="assets/icons/money.svg" alt="Funding/Research" width="16" height="16" style="vertical-align: middle;">',
+    '🤔': '<img src="assets/icons/book-open-user.svg" alt="Ideas" width="16" height="16" style="vertical-align: middle;">',
     '🚇': '<img src="assets/icons/server.svg" alt="Infrastructure" width="16" height="16" style="vertical-align: middle;">',
     '🚧': '<img src="assets/icons/wrench.svg" alt="Maintenance" width="16" height="16" style="vertical-align: middle;">',
-    '🧑‍🏫': '<img src="assets/icons/handshake.svg" alt="Mentoring" width="16" height="16" style="vertical-align: middle;">',
+    '🧑‍🏫': '<img src="assets/icons/treasure-chest.svg" alt="Mentoring" width="16" height="16" style="vertical-align: middle;">',
     '📦': '<img src="assets/icons/package.svg" alt="Platform" width="16" height="16" style="vertical-align: middle;">',
     '🔌': '<img src="assets/icons/plug.svg" alt="Plugin" width="16" height="16" style="vertical-align: middle;">',
     '📆': '<img src="assets/icons/calendar.svg" alt="Project Management" width="16" height="16" style="vertical-align: middle;">',
@@ -66,12 +66,12 @@ const emojiToIconMap = {
     '🔬': '<img src="assets/icons/magnifying-glass.svg" alt="Research" width="16" height="16" style="vertical-align: middle;">',
     '👀': '<img src="assets/icons/eyes.svg" alt="Review" width="16" height="16" style="vertical-align: middle;">',
     '🛡️': '<img src="assets/icons/shield-check.svg" alt="Security" width="16" height="16" style="vertical-align: middle;">',
-    '🔧': '<img src="assets/icons/wrench.svg" alt="Tools" width="16" height="16" style="vertical-align: middle;">',
+    '🔧': '<img src="assets/icons/toolbox.svg" alt="Tools" width="16" height="16" style="vertical-align: middle;">',
     '🌍': '<img src="assets/icons/globe.svg" alt="Translation" width="16" height="16" style="vertical-align: middle;">',
     '⚠️': '<img src="assets/icons/test-tube.svg" alt="Tests" width="16" height="16" style="vertical-align: middle;">',
     '✅': '<img src="assets/icons/check.svg" alt="Tutorials" width="16" height="16" style="vertical-align: middle;">',
-    '📢': '<img src="assets/icons/megaphone.svg" alt="Talks" width="16" height="16" style="vertical-align: middle;">',
-    '📓': '<img src="assets/icons/test-tube.svg" alt="User Testing" width="16" height="16" style="vertical-align: middle;">',
+    '📢': '<img src="assets/icons/user-sound.svg" alt="Talks" width="16" height="16" style="vertical-align: middle;">',
+    '📓': '<img src="assets/icons/user-check.svg" alt="User Testing" width="16" height="16" style="vertical-align: middle;">',
     '📹': '<img src="assets/icons/video-camera.svg" alt="Videos" width="16" height="16" style="vertical-align: middle;">'
 };
 
