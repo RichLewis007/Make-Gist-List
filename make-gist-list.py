@@ -366,8 +366,26 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
         try:
             raw = g.get("updated_at")
             dt_utc = datetime.fromisoformat(raw.replace("Z", "+00:00"))
-            updated = dt_utc.strftime("%Y-%m-%d %H:%M UTC")
-        except Exception:
+            
+            # Convert to user's configured timezone
+            tz = ZoneInfo(timezone)
+            dt_local = dt_utc.astimezone(tz)
+            
+            # Convert date format to strftime format
+            date_strftime = date_format.replace("YYYY", "%Y").replace("MM", "%m").replace("DD", "%d")
+            
+            # Convert time format to strftime format
+            if time_format == "12":
+                time_strftime = "%I:%M %p"  # 12-hour format with AM/PM
+            else:  # Default to 24-hour format
+                time_strftime = "%H:%M"
+            
+            # Format with timezone abbreviation
+            tz_abbr = dt_local.strftime("%Z")
+            updated = dt_local.strftime(f"{date_strftime} {time_strftime} {tz_abbr}")
+            
+        except Exception as e:
+            logger.warning(f"Failed to format gist date '{g.get('updated_at')}': {e}")
             updated = g.get("updated_at") or ""
         url = g.get("html_url") or ""
         gist_id = g.get("id", "")
