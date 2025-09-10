@@ -1,5 +1,5 @@
 temp/
-test.sh
+*.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -110,6 +110,7 @@ celerybeat.pid
 .env
 .envrc
 test*.env
+.current-branch
 .venv
 env/
 venv/
