@@ -71,23 +71,34 @@ uv sync
 
 # 5. Run the script
 uv run python make-gist-list.py
+
+# Windows users: Use PowerShell or Command Prompt
+# PowerShell: uv run python make-gist-list.py
+# CMD: uv run python make-gist-list.py
 ```
 
 > <img src="assets/icons/lightbulb.svg" alt="Tip" width="16" height="16" style="vertical-align: middle;"> **Tip**: The script automatically loads your `.env` file. For detailed local setup instructions, see the [Setup Guide](SETUP.md#local-command-line-usage).
 
-### <img src="assets/icons/gear.svg" alt="Alternate Configuration Method" width="20" height="20" style="vertical-align: middle;"> Alternate Configuration Method
+### <img src="assets/icons/wrench.svg" alt="Configure" width="20" height="20" style="vertical-align: middle;"> Alternate Configuration Method
 
 If you prefer not to use a `.env` file, you can configure the script using export variables:
 
 **Export Variables**
 ```bash
-# Set your preferred settings
+# Linux/macOS
 export GITHUB_USERNAME="your-username"
 export TIMEZONE="America/New_York"
 export DATE_FORMAT="MM-DD-YYYY"
 export TIME_FORMAT="12"
 export USE_HTML_TABLE="true"
-# Run the script
+uv run python make-gist-list.py
+
+# Windows PowerShell
+$env:GITHUB_USERNAME="your-username"
+$env:TIMEZONE="America/New_York"
+$env:DATE_FORMAT="MM-DD-YYYY"
+$env:TIME_FORMAT="12"
+$env:USE_HTML_TABLE="true"
 uv run python make-gist-list.py
 ```
 
