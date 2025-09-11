@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ## [Unreleased]
 
 ### Added
+- **Full Description Rows** - Shows complete gist descriptions on separate rows below each gist entry for better readability
 - **Created Date Column** - Shows when each gist was originally created (in addition to last updated date)
 - **File Names Column** - Displays actual filenames from each gist (shows first 3 files, with "+N more" if more exist)
 - **All Contributors integration** with custom Phosphor icons
