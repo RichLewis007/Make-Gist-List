@@ -122,7 +122,7 @@ The script generates a markdown table like this:
 <tr><td colspan='11'><strong>Description:</strong> Simple utility function for common tasks</td></tr>
 </table>
 
-List created by [Make Gist List](https://github.com/your-username/Make-Gist-List)._
+List created by [Make Gist List](https://github.com/your-username/Make-Gist-List).
 
 ## <img src="assets/icons/wrench.svg" alt="Configuration" width="25" height="25" style="vertical-align: middle;"> Configuration
 
