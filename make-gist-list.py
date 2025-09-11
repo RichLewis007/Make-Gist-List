@@ -40,10 +40,15 @@ Repository: https://github.com/RichLewis007/Make-Gist-List
 Output fields in the generated markdown table:
   Title (first line of gist description, truncated)
   Files (count)
+  File Names (actual filenames, truncated if too many)
   Lang (primary language by largest file)
   Public (always checking this)
-  Updated (UTC)
+  Created (when gist was originally created)
+  Updated (when gist was last modified)
   Link (to the gist)
+  Comments (count)
+  Forks (count)
+  Stars (count)
 """
 
 from __future__ import annotations
@@ -287,7 +292,18 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
     Build markdown table with gist information including engagement metrics.
     
     This function fetches additional data (comments, forks, stars) for each gist
-    and generates a comprehensive markdown table.
+    and generates a comprehensive markdown table with the following columns:
+    - Title: First line of gist description (truncated to 120 chars)
+    - Files: Count of files in the gist
+    - File Names: Actual filenames (shows first 3, with "+N more" if more exist)
+    - Lang: Primary language by largest file size
+    - Public: Checkmark (✓) for public, X (✗) for private
+    - Created: When the gist was originally created (in configured timezone)
+    - Updated: When the gist was last modified (in configured timezone)
+    - Link: Clickable link to the gist
+    - Comments: Number of comments
+    - Forks: Number of forks
+    - Stars: Number of stars
     
     Data Sources:
     - REST API: Basic gist info, comments, forks
@@ -302,7 +318,7 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
         time_format: Time format ("12" for 12-hour, "24" for 24-hour)
         
     Returns:
-        Formatted markdown string
+        Formatted markdown string with comprehensive gist information
     """
     # Generate timestamp in configured timezone with custom date/time formats
     try:
@@ -342,8 +358,8 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
     lines += [
         f"**Total public gists:** {count}",
         "",
-        "| Title | Files | Lang | Public | Updated | Link | Comments | Forks | Stars",
-        "|---|---:|---|:---:|---|---|---|---|---|",
+        "| Title | Files | File Names | Lang | Public | Created | Updated | Link | Comments | Forks | Stars",
+        "|---|---:|---|:---:|---|---|---|---|---|---|---|",
     ]
 
     # Sort gists by update date (newest first)
@@ -362,7 +378,16 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
         title = desc.splitlines()[0][:120]
         files = g.get("files") or {}
         file_count = len(files)
+        
+        # Format file names (truncated if too many)
+        file_names = list(files.keys())[:3]  # Show first 3 files
+        if len(files) > 3:
+            file_names.append(f"+{len(files)-3} more")
+        file_names_str = ", ".join(file_names)
+        
         lang = primary_language(files)
+        
+        # Format updated date
         try:
             raw = g.get("updated_at")
             dt_utc = datetime.fromisoformat(raw.replace("Z", "+00:00"))
@@ -385,8 +410,25 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
             updated = dt_local.strftime(f"{date_strftime} {time_strftime} {tz_abbr}")
             
         except Exception as e:
-            logger.warning(f"Failed to format gist date '{g.get('updated_at')}': {e}")
+            logger.warning(f"Failed to format gist updated date '{g.get('updated_at')}': {e}")
             updated = g.get("updated_at") or ""
+            
+        # Format created date
+        try:
+            raw_created = g.get("created_at")
+            dt_created_utc = datetime.fromisoformat(raw_created.replace("Z", "+00:00"))
+            
+            # Convert to user's configured timezone
+            tz = ZoneInfo(timezone)
+            dt_created_local = dt_created_utc.astimezone(tz)
+            
+            # Format with timezone abbreviation
+            created = dt_created_local.strftime(f"{date_strftime} {time_strftime} {tz_abbr}")
+            
+        except Exception as e:
+            logger.warning(f"Failed to format gist created date '{g.get('created_at')}': {e}")
+            created = g.get("created_at") or ""
+            
         url = g.get("html_url") or ""
         gist_id = g.get("id", "")
 
@@ -407,7 +449,7 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
         stars = star_counts.get(gist_id, "N/A")
 
         public_flag = '✓' if g.get("public") else '✗'
-        lines.append(f"| {title} | {file_count} | {lang or ''} | {public_flag} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
+        lines.append(f"| {title} | {file_count} | {file_names_str} | {lang or ''} | {public_flag} | {created} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
 
     lines += [
         "",
@@ -458,12 +500,15 @@ def main() -> int:
     5. Optionally updates a target gist with the generated content
     
     API Usage:
-    - 1 REST API call to list all public gists
+    - 1 REST API call to list all public gists (includes created_at, updated_at, files info)
     - 1 GraphQL API call to get star counts for all gists (batched)
     - 2 REST API calls per gist for comments and forks
     - 1 REST API call to update target gist (if configured)
     
     Total API calls: 1 + 1 + (2 × number_of_gists) + 1 (if updating gist)
+    
+    The GitHub REST API already provides created_at, updated_at, and files information
+    in the initial gist listing, so no additional API calls are needed for these fields.
     
     Returns:
         0 on success, 5 on gist update error

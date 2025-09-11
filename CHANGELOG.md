@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ## [Unreleased]
 
 ### Added
+- **Created Date Column** - Shows when each gist was originally created (in addition to last updated date)
+- **File Names Column** - Displays actual filenames from each gist (shows first 3 files, with "+N more" if more exist)
 - **All Contributors integration** with custom Phosphor icons
 - **Automated icon replacement system** for contributor badges
 - **Comprehensive local command line documentation** in SETUP.md
