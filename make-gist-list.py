@@ -49,6 +49,9 @@ Output fields in the generated markdown table:
   Comments (count)
   Forks (count)
   Stars (count)
+  
+Additionally, complete gist descriptions are shown on separate rows below each gist entry
+for better readability and to preserve full context.
 """
 
 from __future__ import annotations
@@ -305,6 +308,9 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
     - Forks: Number of forks
     - Stars: Number of stars
     
+    Additionally, for gists with descriptions, a separate row is added below each gist
+    containing the complete description (not truncated) for better readability.
+    
     Data Sources:
     - REST API: Basic gist info, comments, forks
     - GraphQL API: Star counts (batched for efficiency)
@@ -376,6 +382,8 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
     for g in gists_sorted:
         desc = (g.get("description") or "").strip() or "(no description)"
         title = desc.splitlines()[0][:120]
+        full_description = desc  # Keep the full description
+        
         files = g.get("files") or {}
         file_count = len(files)
         
@@ -450,6 +458,10 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
 
         public_flag = '✓' if g.get("public") else '✗'
         lines.append(f"| {title} | {file_count} | {file_names_str} | {lang or ''} | {public_flag} | {created} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
+        
+        # Add full description on a separate row below
+        if full_description and full_description != "(no description)":
+            lines.append(f"| **Description:** {full_description} |||||||||")
 
     lines += [
         "",
