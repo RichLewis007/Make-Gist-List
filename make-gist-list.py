@@ -129,6 +129,7 @@ class Cfg:
     timezone: str
     date_format: str
     time_format: str
+    use_html_table: bool
 
 def getenv_required(name: str) -> str:
     v = os.getenv(name)
@@ -147,6 +148,7 @@ def load_cfg() -> Cfg:
         timezone=os.getenv("TIMEZONE", "UTC"),
         date_format=os.getenv("DATE_FORMAT", "YYYY-MM-DD"),
         time_format=os.getenv("TIME_FORMAT", "24"),
+        use_html_table=os.getenv("USE_HTML_TABLE", "false").lower() in ("true", "1", "yes"),
     )
 
 def make_session(token: Optional[str]) -> Session:
@@ -290,12 +292,12 @@ def get_gist_star_counts_batch(session: Session, gist_ids: List[str]) -> Dict[st
     # Fallback: return "N/A" for all gists if GraphQL fails
     return {gist_id: "N/A" for gist_id in gist_ids}
 
-def build_markdown(gists: list[dict], username: str, session: Session, timezone: str = "UTC", date_format: str = "YYYY-MM-DD", time_format: str = "24") -> str:
+def build_markdown(gists: list[dict], username: str, session: Session, timezone: str = "UTC", date_format: str = "YYYY-MM-DD", time_format: str = "24", use_html_table: bool = False) -> str:
     """
-    Build markdown table with gist information including engagement metrics.
+    Build markdown or HTML table with gist information including engagement metrics.
     
     This function fetches additional data (comments, forks, stars) for each gist
-    and generates a comprehensive markdown table with the following columns:
+    and generates a comprehensive table with the following columns:
     - Title: First line of gist description (truncated to 120 chars)
     - Files: Count of files in the gist
     - File Names: Actual filenames (shows first 3, with "+N more" if more exist)
@@ -364,9 +366,21 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
     lines += [
         f"**Total public gists:** {count}",
         "",
-        "| Title | Files | File Names | Lang | Public | Created | Updated | Link | Comments | Forks | Stars",
-        "|---|---:|---|:---:|---|---|---|---|---|---|---|",
     ]
+    
+    # Add table headers based on format choice
+    if use_html_table:
+        lines += [
+            "<table>",
+            "<tr>",
+            "<th>Title</th><th>Files</th><th>File Names</th><th>Lang</th><th>Public</th><th>Created</th><th>Updated</th><th>Link</th><th>Comments</th><th>Forks</th><th>Stars</th>",
+            "</tr>",
+        ]
+    else:
+        lines += [
+            "| Title | Description | Files | File Names | Lang | Public | Created | Updated | Link | Comments | Forks | Stars |",
+            "|---|---|---|---|---|---|---|---|---|---|---|---|",
+        ]
 
     # Sort gists by update date (newest first)
     gists_sorted = sorted(gists, key=lambda x: x.get("updated_at") or "", reverse=True)
@@ -457,12 +471,22 @@ def build_markdown(gists: list[dict], username: str, session: Session, timezone:
         stars = star_counts.get(gist_id, "N/A")
 
         public_flag = '✓' if g.get("public") else '✗'
-        lines.append(f"| {title} | {file_count} | {file_names_str} | {lang or ''} | {public_flag} | {created} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
         
-        # Add full description on a separate row below
-        if full_description and full_description != "(no description)":
-            lines.append(f"| **Description:** {full_description} |||||||||")
+        if use_html_table:
+            lines.append(f"<tr><td>{title}</td><td>{file_count}</td><td>{file_names_str}</td><td>{lang or ''}</td><td>{public_flag}</td><td>{created}</td><td>{updated}</td><td><a href='{url}'>open</a></td><td>{comments}</td><td>{forks}</td><td>{stars}</td></tr>")
+            
+            # Add full description on a separate row below (spanning all columns)
+            if full_description and full_description != "(no description)":
+                lines.append(f"<tr><td colspan='11'><strong>Description:</strong> {full_description}</td></tr>")
+        else:
+            # Truncate description for markdown tables to prevent width issues
+            desc_truncated = full_description[:50] + "..." if len(full_description) > 50 else full_description
+            lines.append(f"| {title} | {desc_truncated} | {file_count} | {file_names_str} | {lang or ''} | {public_flag} | {created} | {updated} | [open]({url}) | {comments} | {forks} | {stars} |")
 
+    # Close HTML table if using HTML format
+    if use_html_table:
+        lines.append("</table>")
+    
     lines += [
         "",
         f"_List created by [Make Gist List](https://github.com/{username}/Make-Gist-List)._",
@@ -541,7 +565,7 @@ def main() -> int:
     gists = list_public_gists(s, cfg.username)
     logger.debug(f"Found {len(gists)} public gists")
     
-    md = build_markdown(gists, cfg.username, s, cfg.timezone, cfg.date_format, cfg.time_format)
+    md = build_markdown(gists, cfg.username, s, cfg.timezone, cfg.date_format, cfg.time_format, cfg.use_html_table)
 
     # Always print Markdown to stdout
     print(md)
