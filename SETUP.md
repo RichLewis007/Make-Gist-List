@@ -74,6 +74,7 @@ Before you begin, make sure you have:
 > <img src="assets/icons/target.svg" alt="Success" width="16" height="16" style="vertical-align: middle;"> **Success Indicators**: 
 > - The gist contains a markdown table with your gists
 > - The table shows titles, file counts, file names, languages, created/updated dates, and links
+> - Full descriptions are shown on separate rows below each gist entry
 > - The "Last updated" timestamp is recent
 
 ## <img src="assets/icons/wrench.svg" alt="Troubleshooting" width="20" height="20" style="vertical-align: middle;"> Troubleshooting
