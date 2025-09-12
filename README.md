@@ -147,7 +147,7 @@ The script supports two output formats:
 - Renders as actual tables in GitHub gists
 - Supports full-width description rows using `colspan`
 - Better for viewing in GitHub gist interface
-- ⚠️ **Note**: GitHub repository READMEs strip `colspan` attributes, so this format doesn't work there
+- <img src="assets/icons/test-tube.svg" alt="Tests" width="16" height="16" style="vertical-align: middle;"> **Note**: GitHub repository READMEs strip `colspan` attributes, so this format doesn't work there
 
 **Markdown Tables (`USE_HTML_TABLE=false`)** - Recommended for repository README files:
 - Standard markdown table syntax
