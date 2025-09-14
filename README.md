@@ -1,6 +1,6 @@
 # Make Gist List <img src="assets/icons/file-text.svg" alt="Documentation" width="25" height="25" style="vertical-align: middle;">
 
-<img src="assets/Make-Gist-List-readme-header.png" alt="Make-Gist-List-README-heading" width="1024" height="512" style="vertical-align: middle;">
+<img src="assets/make-gist-list-readme-header2.png" alt="Make-Gist-List-README-heading" width="894" height="300" style="vertical-align: middle;">
 
 [![Update Gist List](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml/badge.svg)](https://github.com/RichLewis007/Make-Gist-List/actions/workflows/update-gist-list-agent.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
